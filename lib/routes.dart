@@ -1,6 +1,6 @@
 import 'package:ecommerece/core/constant/routing.dart';
 import 'package:ecommerece/core/middleware/mymiddleware.dart';
-import 'package:ecommerece/view/screen/auth/authscreen.dart';
+// import 'package:ecommerece/view/screen/auth/authscreen.dart';
 import 'package:ecommerece/view/screen/auth/forgetpassword/forget_password_screen.dart';
 // import 'package:ecommerece/view/screen/auth/loagin_screen.dart';
 import 'package:ecommerece/view/screen/auth/forgetpassword/restpassword.dart';
@@ -11,7 +11,6 @@ import 'package:ecommerece/view/screen/auth/forgetpassword/verfirycode.dart';
 import 'package:ecommerece/view/screen/auth/verfirycode_singup.dart';
 import 'package:ecommerece/view/screen/cart_screen.dart';
 import 'package:ecommerece/view/screen/itemscreen.dart';
-import 'package:ecommerece/view/screen/home.dart';
 import 'package:ecommerece/view/screen/homescreen.dart';
 import 'package:ecommerece/view/screen/language.dart';
 import 'package:ecommerece/view/screen/onbradge.dart';
