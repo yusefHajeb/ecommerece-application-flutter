@@ -27,8 +27,11 @@ dependencies:
   velocity_x: ^4.1.0
   flutter_staggered_animations: ^1.1.1
   google_maps_flutter: ^2.3.0
-  connectivity: ^3.0.6
-  fluttertoast: ^8.2.2
+  internet_connection_checker: ^1.0.0+1
+  # connectivity: ^3.0.6
+  # fluttertoast: ^8.2.2
+  # like_button: ^2.0.5
+  # flash: ^3.0.5+1
   # connectivity: ^3.0.6
   # fluttertoast: ^8.2.2
 

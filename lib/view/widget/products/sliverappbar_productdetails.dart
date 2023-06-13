@@ -12,7 +12,7 @@ class SliverAppBarProduct extends GetView<ProductDetailesControllerImp> {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      leading: CircleAvatar(
+      leading: const CircleAvatar(
         backgroundColor: AppColor.backgroundScreen,
         maxRadius: 100,
         minRadius: 2,
@@ -27,14 +27,14 @@ class SliverAppBarProduct extends GetView<ProductDetailesControllerImp> {
       automaticallyImplyLeading: false,
       actions: [
         Container(
-            margin: EdgeInsets.symmetric(
+            margin: const EdgeInsets.symmetric(
               horizontal: 20,
             ),
             width: 50,
             height: 10,
             child: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.shopping_bag_outlined),
+              icon: const Icon(Icons.shopping_bag_outlined),
               color: AppColor.backgroundScreen,
             ))
       ],

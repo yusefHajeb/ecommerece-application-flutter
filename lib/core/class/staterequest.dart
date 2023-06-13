@@ -1,4 +1,4 @@
-enum StateRequest {
+enum StatusRequest {
   loading,
   success,
   failure,

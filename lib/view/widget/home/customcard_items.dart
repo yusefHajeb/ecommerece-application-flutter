@@ -28,7 +28,7 @@ class CustomCardItem extends StatelessWidget {
         },
         child: Card(
           child: Padding(
-            padding: EdgeInsets.all(0),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -40,18 +40,17 @@ class CustomCardItem extends StatelessWidget {
                   // height: size.height * 0.2,
                 ),
 
-                Text(
-                  controller.dataItems[indexx].itemsName!,
-                  style: Theme.of(context).textTheme.headline4!.copyWith(
-                        fontSize: 10,
-                      ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 5),
+                  child: Text(
+                    controller.dataItems[indexx].itemsName!,
+                    style: Theme.of(context).textTheme.headline4!.copyWith(
+                          overflow: TextOverflow.ellipsis,
+                          fontSize: 12,
+                        ),
+                  ),
                 ),
-                // Text(
-                //   cutDescription(
-                //     controller.dataItems[indexx].itemsDec!,
-                //   ),
-                //   style: Theme.of(context).textTheme.headline4,
-                // ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [

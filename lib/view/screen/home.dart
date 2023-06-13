@@ -24,7 +24,7 @@ class Home extends StatelessWidget {
     var size = MediaQuery.of(context).size;
 
     return SingleChildScrollView(
-      // padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -36,6 +36,9 @@ class Home extends StatelessWidget {
             child: Row(
               children: [
                 const CustomInpoutSearch(title: "Find Product"),
+                const SizedBox(
+                  width: 5,
+                ),
                 CustomButtonNotification(onPressedIcon: () {})
               ],
             ),
@@ -44,7 +47,7 @@ class Home extends StatelessWidget {
           //=================
 
           CustomTexttile(
-              title: "Catogery", style: Theme.of(context).textTheme.headline2!),
+              title: "Category", style: Theme.of(context).textTheme.headline2!),
           // ignore: prefer_const_constructors
           CustomCatagoryHeader(),
           // CustomTexttile(title: "Popular Products"),
@@ -52,6 +55,20 @@ class Home extends StatelessWidget {
           CustomTexttile(
               title: "Popular Products",
               style: Theme.of(context).textTheme.headline2!),
+
+          // ListView.builder(
+          //   itemCount: 4,
+          //   shrinkWrap: true,
+          //   physics: ScrollPhysics(),
+          //   scrollDirection: Axis.horizontal,
+          //   itemBuilder: (BuildContext context, int i) {
+          //     return Container(
+          //         width: Get.width / 2,
+          //         height: Get.height / 5,
+          //         child: CustomCardItem(indexx: i));
+          //   },
+          // ),
+
           GridView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.vertical,

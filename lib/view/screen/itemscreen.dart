@@ -27,8 +27,12 @@ class ItemsScreen extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(bottom: 30),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       const CustomInpoutSearch(title: "Find Product"),
+                      SizedBox(
+                        width: 5,
+                      ),
                       CustomButtonNotification(onPressedIcon: () {})
                     ],
                   ),

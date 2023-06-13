@@ -1,3 +1,4 @@
+import 'package:ecommerece/binding.dart';
 import 'package:ecommerece/core/localization/changelocal.dart';
 import 'package:ecommerece/core/localization/translation.dart';
 import 'package:ecommerece/core/services/services.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       locale: contoller.language,
       title: 'Flutter Demo',
       theme: contoller.appTheme,
-      // initialBinding: MyBinding(),
+      initialBinding: MyBinding(),
       // home: Launguage(),
       getPages: routes,
       // routes: routes,

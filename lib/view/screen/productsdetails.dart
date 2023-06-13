@@ -10,6 +10,9 @@ import 'package:ecommerece/view/widget/products/sliverappbar_productdetails.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../widget/products/custom_incriment_and_price.dart';
+import '../widget/products/custom_size_product.dart';
+
 class CustomProductDetalesScreen extends StatelessWidget {
   const CustomProductDetalesScreen({super.key});
 
@@ -72,7 +75,7 @@ class ProductDetalesScreen extends StatelessWidget {
                       height: 12,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         const Icon(
                           Icons.star,
@@ -91,15 +94,15 @@ class ProductDetalesScreen extends StatelessWidget {
                         SizedBox(
                           width: widthScreen * 0.4,
                         ),
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text(
-                            data.itemPrice!,
-                            style: Theme.of(context).textTheme.headline4,
-                          ),
-                        )
                       ],
                     ),
+                    Container(
+                      width: 400,
+                      height: 1,
+                      decoration: BoxDecoration(color: Colors.grey[200]),
+                    ),
+
+                    CustomIncrimentAndPrice(data: data, controller: controller),
                     SizedBox(
                       height: 20,
                     ),
@@ -145,40 +148,7 @@ class ProductDetalesScreen extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    // Container(
-                    //   height: 35,
-                    //   child: ListView.builder(
-                    //       itemCount: 4,
-                    //       scrollDirection: Axis.horizontal,
-                    //       itemBuilder: (ctx, i) {
-                    //         return Padding(
-                    //           padding: EdgeInsets.only(right: 12),
-                    //           child: GestureDetector(
-                    //             onTap: () {
-                    //               controller.changeSize(i);
-                    //             },
-                    //             child: Container(
-                    //               width: 35,
-                    //               height: 35,
-                    //               alignment: Alignment.center,
-                    //               decoration: BoxDecoration(
-                    //                 border: Border.all(
-                    //                     width: 1.6,
-                    //                     color: controller.indexsize == i
-                    //                         ? AppColor.secandryColor
-                    //                         : AppColor.backgroundScreen),
-                    //                 borderRadius: BorderRadius.circular(10),
-                    //               ),
-                    //               child: Text(
-                    //                 "4$i",
-                    //                 style:
-                    //                     Theme.of(context).textTheme.headline4,
-                    //               ),
-                    //             ),
-                    //           ),
-                    //         );
-                    //       }),
-                    // ),
+                    CustomSizeProducts(controller: controller),
                     SizedBox(height: 20),
                     Text(
                       "Explain",

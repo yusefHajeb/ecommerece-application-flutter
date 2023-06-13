@@ -43,22 +43,25 @@ class CatagoresItem extends StatelessWidget {
     Get.put(ItemsControllerItm());
     return GetBuilder<ItemsControllerItm>(
       builder: (controller) => AnimatedContainer(
-        duration: const Duration(microseconds: 400),
-        width: controller.selectedCat == selected ? 140 : 50,
-        height: 30,
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeIn,
+
+        width: controller.selectedCat == selected ? 150 : 50,
+        // height: 30,
         // curve: Curves.,
         decoration: BoxDecoration(
-            color: controller.selectedCat != selected
-                ? Colors.grey[200]
+          color: controller.selectedCat != selected
+              ? Colors.grey[200]
+              : AppColor.backgroundScreen,
+          borderRadius: BorderRadius.circular(30),
+          border: Border.all(
+            color: controller.selectedCat == selected
+                ? AppColor.white
                 : AppColor.backgroundScreen,
-            borderRadius: BorderRadius.circular(30),
-            border: Border.all(
-              color: controller.selectedCat == selected
-                  ? AppColor.white
-                  : AppColor.backgroundScreen,
-              width: 1,
-            ),
-            boxShadow: kElevationToShadow[2]),
+            // width: 1,
+          ),
+          boxShadow: kElevationToShadow[2],
+        ),
         child: InkWell(
           onTap: () {
             controller.stateCategoryActive(selected);
@@ -77,13 +80,11 @@ class CatagoresItem extends StatelessWidget {
                   decoration: BoxDecoration(
                       // color: Colors.grey[200],
                       ),
-                  child: AnimatedContainer(
+                  child: Container(
                     width: 48,
-                    margin: controller.selectedCat == selected
-                        ? EdgeInsets.all(5)
-                        : EdgeInsets.all(0),
+
                     height: 42,
-                    duration: const Duration(milliseconds: 200),
+                    // duration: const Duration(milliseconds: 200),
                     child: Material(
                         type: MaterialType.button,
                         color: Colors.grey[200],

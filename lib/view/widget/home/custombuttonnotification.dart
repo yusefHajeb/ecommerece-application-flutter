@@ -12,7 +12,7 @@ class CustomButtonNotification extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         vertical: 2,
       ),
-      margin: const EdgeInsets.only(left: 4, right: 4),
+      // margin: const EdgeInsets.only(left: 4, right: 4),
       decoration: BoxDecoration(
         color: AppColor.backgroundScreen,
         borderRadius: BorderRadius.circular(10),

@@ -2,6 +2,7 @@ import 'package:ecommerece/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 ThemeData themeEnglish = ThemeData(
+  appBarTheme: AppBarTheme(backgroundColor: AppColor.backgroundScreen),
   primaryColor: AppColor.secandryColor,
   secondaryHeaderColor: AppColor.secandryColor,
   fontFamily: 'Lato',
@@ -37,6 +38,7 @@ ThemeData themeEnglish = ThemeData(
 
 ThemeData themeArabic = ThemeData(
   primaryColor: AppColor.secandryColor,
+  appBarTheme: const AppBarTheme(backgroundColor: AppColor.backgroundScreen),
   secondaryHeaderColor: AppColor.secandryColor,
   fontFamily: 'Cairo',
   textTheme: const TextTheme(
