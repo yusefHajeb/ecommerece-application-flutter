@@ -14,6 +14,6 @@ class AppRout {
   static const productDetalis = '/productsetaless';
   static const cart = '/cartscreen';
   static const settingScreen = '/settengscreen';
-
+  static const addAddress = '/addaddress';
   // static const
 }
