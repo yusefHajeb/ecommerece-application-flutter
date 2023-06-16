@@ -22,15 +22,15 @@ class TestData {
 //   }
 // }
 
-  static Future<dynamic> fetchDataFromHost() async {
-    try {
-      var response = await client.get(Uri.parse(AppLinke.usersData));
-      print(response.body + "=========");
-      if (response.statusCode == 200) {
-        return response.body;
-      }
-    } catch (e) {
-      return null;
-    }
-  }
+  // static Future<dynamic> fetchDataFromHost() async {
+  //   try {
+  //     var response = await client.get(Uri.parse(AppLinke.usersData));
+  //     print(response.body + "=========");
+  //     if (response.statusCode == 200) {
+  //       return response.body;
+  //     }
+  //   } catch (e) {
+  //     return null;
+  //   }
+  // }
 }

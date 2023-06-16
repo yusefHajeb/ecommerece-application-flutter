@@ -16,26 +16,30 @@ import '../functions/check_internet.dart';
 // if state rsponse from http url databasre return the data fitch correct or did falure
 
 class Curd {
-  late final NetworkInfo networkInfo;
+  final NetworkInfoImp networkInfo =
+      NetworkInfoImp(InternetConnectionChecker());
   Future<Either<StatusRequest, Map>> postData(String linkurl, Map data) async {
     try {
+      print("You in Curd ===========");
       if (await networkInfo.isConnected) {
         // print("you in Curd ");
-        var response = await http.get(Uri.parse(linkurl));
-        if (response.statusCode == 200) {
+        var response = await http.post(Uri.parse(linkurl), body: data);
+        print(" ============= $response One Condiation ");
+        if (response.statusCode == 200 || response.statusCode == 201) {
           print("you in Curd ");
           Map responsebody = jsonDecode(response.body);
           print(responsebody);
-
           return Right(responsebody);
         } else {
-          print("States No InterNet========");
-          return const Left(StatusRequest.offlinefailure);
+          return const Left(StatusRequest.serverfailure);
         }
       } else {
+        print("You in OfflineFailure ===========");
         return const Left(StatusRequest.offlinefailure);
       }
-    } catch (_) {
+    } catch (e) {
+      print("You in Catch ===========$e");
+
       // print("you in Curd ");
       return const Left(StatusRequest.serverfailure);
     }
