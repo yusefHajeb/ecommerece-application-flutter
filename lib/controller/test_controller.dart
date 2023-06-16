@@ -16,52 +16,26 @@ class TestController extends GetxController {
 
   List data = [];
   bool isLoading = false;
-  StatusRequest? statusRequest;
-  void fetchData() async {
-    try {
-      isLoading = true;
-      update();
-      data = await TestData.fetchDataFromHost() ??
-          [
-            {"sdsds": "dfd"}
-          ];
-    } finally {
-      update();
-      print("data fetch done");
-    }
-  }
+  late StatusRequest statusRequest;
 
   static var client = http.Client();
-  Future<List<dynamic>> fetchData2() async {
-    final response =
-        await client.get(Uri.parse("http://localhost:8012/ecommerce/test.php"));
-    update();
-    // .then((response) => print(response.body))
-    // .catchError((error) => print(error));
-    if (response.statusCode == 200) {
-      return jsonDecode(response.body);
-    } else {
-      throw Exception('Failed to load data');
-    }
-  }
 
-  Future<List> getData() async {
+  Future<void> getData() async {
     statusRequest = StatusRequest.loading;
     var response = await testData.getData();
+    print("$response-----------------controller");
     statusRequest = handlingData(response);
+
     if (statusRequest == StatusRequest.success) {
-      data.addAll(json.decode(response.body));
-      print(json.decode(response).toString() + "-----------------");
-      update();
-      return data;
+      // data.addAll(json.decode(response.body));
+      data.addAll(response);
     }
-    return data;
+
+    update();
   }
 
   @override
   void onInit() {
-    // fetchData();
-    // TODO: implement onInit
     getData();
     super.onInit();
   }
