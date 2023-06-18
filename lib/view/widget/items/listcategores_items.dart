@@ -23,7 +23,7 @@ class CustomCatagoryItems extends StatelessWidget {
                 // controller.indexCatogory = i;
                 return Bouncing(
                     onPress: () {
-                      // controller.goToItems(controller.listHeaderCatogery, i);
+                      print("${controller.selectedCat} ========== selceted");
                     },
                     child: CatagoresItem(
                         data: controller.listCat[i], selected: i));
@@ -64,6 +64,7 @@ class CatagoresItem extends StatelessWidget {
         ),
         child: InkWell(
           onTap: () {
+            controller.setIdToShowItems(selected.toString());
             controller.stateCategoryActive(selected);
 
             print(selected.toString());

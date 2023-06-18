@@ -14,7 +14,6 @@ class TestData {
     return response.fold((l) => l, (r) => r);
   }
 
-  static var client = http.Client();
 //   getData() async {
 //     var response = await crud.postData(AppLinke.usersData, {});
 //     print("you in TestData ====$response");

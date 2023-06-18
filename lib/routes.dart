@@ -25,12 +25,12 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 List<GetPage<dynamic>>? routes = [
   // GetPage(
   //     name: '/', page: () => const Launguage(), middlewares: [MyMiddleware()]),
-  GetPage(
-      name: '/', page: () => const Launguage(), middlewares: [MyMiddleware()]),
   // GetPage(
-  //     name: '/', page: () => const HomeScreen(), middlewares: [MyMiddleware()]),
+  //     name: '/', page: () => const Launguage(), middlewares: [MyMiddleware()]),
+  GetPage(
+      name: '/', page: () => const HomeScreen(), middlewares: [MyMiddleware()]),
 
-  GetPage(name: AppRout.authing, page: () => TestView()),
+  // GetPage(name: AppRout.authing, page: () => TestView()),
   GetPage(name: AppRout.onBoarding, page: () => const OnBordage()),
   GetPage(name: AppRout.forgetPassword, page: () => const ForgetPassword()),
   GetPage(name: AppRout.resetPassword, page: () => const ResetPassword()),

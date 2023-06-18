@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerece/controller/home_controller.dart';
 import 'package:ecommerece/core/constant/color.dart';
 
@@ -22,7 +23,13 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     HomeContollerImp controller = Get.put(HomeContollerImp());
     var size = MediaQuery.of(context).size;
-
+    List imgList = [
+      ImageAssets.product6,
+      ImageAssets.category3,
+      ImageAssets.product2,
+      // 'assest/images/s2.jpg',
+      // 'assest/images/s3.jpg'
+    ];
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
@@ -43,8 +50,36 @@ class Home extends StatelessWidget {
               ],
             ),
           ),
-          const CustomCurdImage(),
+          // const CustomCurdImage(),
           //=================
+
+          Container(
+            child: CarouselSlider(
+                items: imgList.map((imgUrl) {
+                  return Container(
+                      width: double.infinity,
+                      // margin: EdgeInsets.symmetric(horizontal: 10),
+                      child: Image.asset(
+                        imgUrl,
+                        fit: BoxFit.fill,
+                      ));
+                }).toList(),
+                options: CarouselOptions(
+                    height: 185,
+                    onPageChanged: (int index, _) {
+                      // setState(() {
+                      //   curentIndex = index;
+                      // });
+                    },
+                    autoPlayAnimationDuration: const Duration(seconds: 1),
+                    initialPage: 0,
+                    enableInfiniteScroll: false,
+                    enlargeCenterPage:
+                        true, //to image show is biger than behaind
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    autoPlayInterval: Duration(seconds: 3),
+                    autoPlay: true)),
+          ),
 
           CustomTexttile(
               title: "Category", style: Theme.of(context).textTheme.headline2!),
@@ -79,14 +114,14 @@ class Home extends StatelessWidget {
                 crossAxisSpacing: 10,
                 childAspectRatio: 0.7,
                 mainAxisSpacing: 10),
-            itemCount: controller.dataItems.length,
+            itemCount: controller.itemsIndex.length,
             itemBuilder: (ctx, i) => AnimationConfiguration.staggeredList(
               position: i,
               duration: const Duration(milliseconds: 375),
               child: SlideAnimation(
                 horizontalOffset: 50.0,
                 child: FadeInAnimation(
-                  child: CustomCardItem(indexx: i),
+                  child: CustomCardItemHome(indexx: i),
                 ),
               ),
             ),

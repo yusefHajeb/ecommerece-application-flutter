@@ -44,6 +44,7 @@ class ItemsControllerItm extends ItemsController {
     super.onInit();
     categories = Get.arguments['listCat'];
     selectedCat = Get.arguments['selectedcat'];
+    setIdToShowItems(selectedCat.toString());
     listCat[selectedCat!].active = '1';
 
     print('You in onInit Items ====== $selectedCat!');
@@ -55,40 +56,85 @@ class ItemsControllerItm extends ItemsController {
     throw UnimplementedError();
   }
 
+  List<ItemsModel> itemsIndex = [];
+  setIdToShowItems(String id) {
+    itemsIndex = [];
+    if (id == "0")
+      itemsIndex.addAll(dataItems);
+    else {
+      dataItems.forEach((element) {
+        if (element.categoriesId == id) itemsIndex.add(element);
+      });
+    }
+  }
+
   List<ItemsModel> dataItems = [
     ItemsModel(
-      itemsName: "MMD_R1 Shose",
-      itemId: '1',
-      categoriesImage: ImageAssets.onBordingOne,
-      itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
-      itemPrice: "200.00",
-      itemCat: 'Nike',
-    ),
+        itemsName: "MMD_R1 Shose",
+        itemId: '1',
+        itemsImage: ImageAssets.product1,
+        itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
+        itemPrice: "200.00",
+        itemCat: 'Nike',
+        categoriesId: '2'),
     ItemsModel(
-      itemsName: "Kaotir Shose",
-      itemId: '2',
-      categoriesImage: ImageAssets.onBordingOne,
-      itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
-      itemPrice: "180.00",
-      itemCat: 'addidas',
-    ),
+        itemsName: "Kaotir",
+        itemId: '2',
+        itemsImage: ImageAssets.category3,
+        itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
+        itemPrice: "180.00",
+        itemCat: 'addidas',
+        categoriesId: '3'),
     ItemsModel(
-      itemsName: "Ultraboost DNA Shose",
-      itemId: '3',
-      categoriesImage: ImageAssets.onBordingOne,
-      itemsDec: "Nike Running Shoses With Cooling Ventilation ",
-      itemPrice: "180.00",
-      itemCat: 'Nike',
-    ),
+        itemsName: "Kaotir",
+        itemId: '3',
+        itemsImage: ImageAssets.product2,
+        itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
+        itemPrice: "180.00",
+        itemCat: 'addidas',
+        categoriesId: '3'),
     ItemsModel(
-      itemsName: "Kaotir Shose",
-      itemId: '4',
-      categoriesImage: ImageAssets.onBordingOne,
-      itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
-      itemPrice: "100.00",
-      itemCat: 'addidas',
-    ),
+        itemsName: "Ultraboost DNA Shose",
+        itemId: '4',
+        itemsImage: ImageAssets.product3,
+        itemsDec: "Nike Running Shoses With Cooling Ventilation ",
+        itemPrice: "180.00",
+        itemCat: 'addidas',
+        categoriesId: '3'),
+    ItemsModel(
+        itemsName: "Kaotir Shose",
+        itemId: '5',
+        itemsImage: ImageAssets.product4,
+        itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
+        itemPrice: "100.00",
+        itemCat: 'addidas',
+        categoriesId: '3'),
+    ItemsModel(
+        itemsName: "Kaotir Shose",
+        itemId: '6',
+        itemsImage: ImageAssets.product5,
+        itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
+        itemPrice: "100.00",
+        itemCat: 'addidas',
+        categoriesId: '3'),
+    ItemsModel(
+        itemsName: "Kaotir Shose",
+        itemId: '7',
+        itemsImage: ImageAssets.category1,
+        itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
+        itemPrice: "100.00",
+        itemCat: 'Naik',
+        categoriesId: '2'),
+    ItemsModel(
+        itemsName: "Kaotir Shose",
+        itemId: '8',
+        itemsImage: ImageAssets.category2,
+        itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
+        itemPrice: "100.00",
+        itemCat: 'Naik',
+        categoriesId: '2'),
   ];
+
   List<CategoriesModel> listCat = [
     CategoriesModel(
         categoriesId: "1",

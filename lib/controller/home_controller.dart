@@ -49,6 +49,7 @@ class HomeContollerImp extends HomeContrller {
 
   @override
   void onInit() {
+    setIdToShowItems('0');
     pageController =
         PageController(initialPage: _currentPage, viewportFraction: 0.8);
     // pageController = PageController(initialPage: )
@@ -77,19 +78,19 @@ class HomeContollerImp extends HomeContrller {
         categoriesId: "1",
         categoriesName: "All",
         categoriesNameAr: "الكل",
-        icon: Icons.all_inbox,
+        icon: Icons.priority_high_rounded,
         active: '0'),
     CategoriesModel(
         categoriesId: "2",
         categoriesName: "Nike",
         categoriesNameAr: "نايك",
-        icon: Icons.sports_hockey_outlined,
+        icon: Icons.sports_soccer_sharp,
         active: '0'),
     CategoriesModel(
         categoriesId: "3",
         categoriesName: "Addidas",
         categoriesNameAr: "اديداس",
-        icon: Icons.add_ic_call_outlined,
+        icon: Icons.android_sharp,
         active: '0'),
     CategoriesModel(
         categoriesId: "4",
@@ -98,48 +99,85 @@ class HomeContollerImp extends HomeContrller {
         icon: Icons.devices_other,
         active: '0'),
   ];
+  List<ItemsModel> itemsIndex = [];
+  setIdToShowItems(String id) {
+    itemsIndex.clear();
+    if (id == "0")
+      itemsIndex.addAll(dataItems);
+    else {
+      dataItems.forEach((element) {
+        if (element.categoriesId! == id) itemsIndex.add(element);
+      });
+    }
+    update();
+  }
+
   // List x = [false, true, false, false];
   List<ItemsModel> dataItems = [
     ItemsModel(
         itemsName: "MMD_R1 Shose",
         itemId: '1',
-        itemsImage: ImageAssets.onBordingOne,
+        itemsImage: ImageAssets.product1,
         itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
         itemPrice: "200.00",
         itemCat: 'Nike',
-        categoriesId: '1'),
+        categoriesId: '2'),
     ItemsModel(
         itemsName: "Kaotir",
         itemId: '2',
-        itemsImage: ImageAssets.onBordingTow,
+        itemsImage: ImageAssets.category3,
         itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
         itemPrice: "180.00",
         itemCat: 'addidas',
-        categoriesId: '2'),
+        categoriesId: '3'),
+    ItemsModel(
+        itemsName: "Kaotir",
+        itemId: '3',
+        itemsImage: ImageAssets.product2,
+        itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
+        itemPrice: "180.00",
+        itemCat: 'addidas',
+        categoriesId: '3'),
     ItemsModel(
         itemsName: "Ultraboost DNA Shose",
-        itemId: '3',
-        itemsImage: ImageAssets.onBordingThree,
+        itemId: '4',
+        itemsImage: ImageAssets.product3,
         itemsDec: "Nike Running Shoses With Cooling Ventilation ",
         itemPrice: "180.00",
-        itemCat: 'Nike',
+        itemCat: 'addidas',
         categoriesId: '3'),
     ItemsModel(
         itemsName: "Kaotir Shose",
-        itemId: '4',
-        itemsImage: ImageAssets.onBordingOne,
+        itemId: '5',
+        itemsImage: ImageAssets.product4,
         itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
         itemPrice: "100.00",
         itemCat: 'addidas',
-        categoriesId: '4'),
+        categoriesId: '3'),
     ItemsModel(
         itemsName: "Kaotir Shose",
-        itemId: '4',
-        itemsImage: ImageAssets.onBordingOne,
+        itemId: '6',
+        itemsImage: ImageAssets.product5,
         itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
         itemPrice: "100.00",
         itemCat: 'addidas',
-        categoriesId: '4'),
+        categoriesId: '3'),
+    ItemsModel(
+        itemsName: "Kaotir Shose",
+        itemId: '7',
+        itemsImage: ImageAssets.category1,
+        itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
+        itemPrice: "100.00",
+        itemCat: 'Naik',
+        categoriesId: '2'),
+    ItemsModel(
+        itemsName: "Kaotir Shose",
+        itemId: '8',
+        itemsImage: ImageAssets.category2,
+        itemsDec: "Adidas Running Shoses With Cooling Ventilation ",
+        itemPrice: "100.00",
+        itemCat: 'Naik',
+        categoriesId: '2'),
   ];
 
   int indexCatogory = 0;

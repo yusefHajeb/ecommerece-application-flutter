@@ -7,10 +7,10 @@ import 'package:ecommerece/view/widget/bouncingbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CustomCardItemHome extends StatelessWidget {
+class CustomCardItem extends StatelessWidget {
   final int indexx;
 
-  const CustomCardItemHome({super.key, required this.indexx});
+  const CustomCardItem({super.key, required this.indexx});
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,12 @@ class CustomCardItemHome extends StatelessWidget {
     }
 
     var size = MediaQuery.of(context).size;
-    Get.put(HomeContollerImp());
+    Get.put(ItemsControllerItm());
 
-    return GetBuilder<HomeContollerImp>(
+    return GetBuilder<ItemsControllerItm>(
       builder: (controller) => InkWell(
         onTap: () {
-          controller.goToProduct(controller.dataItems, indexx);
+          // controller.goToProduct(controller.dataItems, indexx);
         },
         child: Card(
           child: Padding(

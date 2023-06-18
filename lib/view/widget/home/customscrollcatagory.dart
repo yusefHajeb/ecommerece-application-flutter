@@ -59,6 +59,7 @@ class CatagoryHeader2 extends StatelessWidget {
             boxShadow: kElevationToShadow[2]),
         child: InkWell(
           onTap: () {
+            //  controller.setIdToShowItems(selected.toString());
             controller.stateCategoryActive(selected);
             controller.goToItems(controller.listCat, selected);
             // print(controller.listHeaderCatogery[z].flag);

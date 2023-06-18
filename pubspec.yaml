@@ -25,6 +25,7 @@ dependencies:
   firebase_messaging: ^14.6.2
   cached_network_image: ^3.2.3
   velocity_x: ^4.1.0
+  carousel_slider: 
   flutter_staggered_animations: ^1.1.1
   google_maps_flutter: ^2.3.0
   internet_connection_checker: ^1.0.0+1

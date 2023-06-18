@@ -19,12 +19,18 @@ class Curd {
   final NetworkInfoImp networkInfo =
       NetworkInfoImp(InternetConnectionChecker());
   Future<Either<StatusRequest, Map>> postData(String linkurl, Map data) async {
+    var response;
+    response = await http.post(Uri.parse(linkurl), body: data);
     try {
-      print("You in Curd ===========");
       if (await networkInfo.isConnected) {
+        print("yes enter net =========");
         // print("you in Curd ");
-        var response = await http.post(Uri.parse(linkurl), body: data);
-        print(" ============= $response One Condiation ");
+        response = await http.post(Uri.parse(linkurl), body: data);
+
+        if (response.statusCode == 404)
+          print("the error is 404 -------------- 404${response.statusCode}");
+        // print(
+        //     " ============= $response One Condiation and ${response.statusCode}");
         if (response.statusCode == 200 || response.statusCode == 201) {
           print("you in Curd ");
           Map responsebody = jsonDecode(response.body);
@@ -38,7 +44,7 @@ class Curd {
         return const Left(StatusRequest.offlinefailure);
       }
     } catch (e) {
-      print("You in Catch ===========$e");
+      print("You in Catch ===========$e${response}");
 
       // print("you in Curd ");
       return const Left(StatusRequest.serverfailure);
