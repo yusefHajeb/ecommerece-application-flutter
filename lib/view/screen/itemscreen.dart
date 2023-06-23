@@ -20,10 +20,9 @@ class ItemsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(ItemsControllerItm());
     return Scaffold(
-      body: GetBuilder<ItemsControllerItm>(
-        builder: (controller) => SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Container(
+      body: SingleChildScrollView(
+        child: GetBuilder<ItemsControllerItm>(
+          builder: (controller) => Container(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
               child: Column(
                 // shrinkWrap: true,
@@ -47,28 +46,27 @@ class ItemsScreen extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  AnimationLimiter(
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      padding: const EdgeInsets.all(8.0),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              // mainAxisExtent: 100,
-                              childAspectRatio: 0.7,
-                              crossAxisSpacing: 8,
-                              mainAxisSpacing: 10),
-                      itemCount: controller.itemsIndex.length,
-                      itemBuilder: (ctx, i) =>
-                          AnimationConfiguration.staggeredList(
-                        position: i,
-                        duration: const Duration(milliseconds: 375),
-                        child: SlideAnimation(
-                          verticalOffset: 100.0,
-                          child: FadeInAnimation(
-                            child: CustomCardItem(
-                              indexx: i,
-                            ),
+                  GridView.builder(
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.all(8.0),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            // mainAxisExtent: 100,
+                            childAspectRatio: 0.7,
+                            crossAxisSpacing: 18,
+                            mainAxisSpacing: 10),
+                    itemCount: controller.itemsIndex.length,
+                    itemBuilder: (ctx, i) =>
+                        AnimationConfiguration.staggeredList(
+                      position: i,
+                      duration: const Duration(milliseconds: 375),
+                      child: SlideAnimation(
+                        verticalOffset: 100.0,
+                        child: FadeInAnimation(
+                          curve: Curves.slowMiddle,
+                          child: CustomCardItem(
+                            indexx: i,
                           ),
                         ),
                       ),

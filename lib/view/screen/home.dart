@@ -54,15 +54,27 @@ class Home extends StatelessWidget {
           //=================
 
           Container(
+            padding: EdgeInsets.symmetric(vertical: 10),
+            // margin: EdgeInsets.symmetric(vertical: 20),
             child: CarouselSlider(
                 items: imgList.map((imgUrl) {
                   return Container(
                       width: double.infinity,
+                      decoration: BoxDecoration(
+                        boxShadow: kElevationToShadow[2],
+                        borderRadius: BorderRadius.circular(20),
+                        // border: Border.all(color: Colors.black38),
+                      ),
                       // margin: EdgeInsets.symmetric(horizontal: 10),
-                      child: Image.asset(
-                        imgUrl,
-                        fit: BoxFit.fill,
-                      ));
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          child: InteractiveViewer(
+                            clipBehavior: Clip.hardEdge,
+                            child: Image.asset(
+                              imgUrl,
+                              fit: BoxFit.cover,
+                            ),
+                          )));
                 }).toList(),
                 options: CarouselOptions(
                     height: 185,
@@ -77,7 +89,7 @@ class Home extends StatelessWidget {
                     enlargeCenterPage:
                         true, //to image show is biger than behaind
                     autoPlayCurve: Curves.fastOutSlowIn,
-                    autoPlayInterval: Duration(seconds: 3),
+                    autoPlayInterval: Duration(seconds: 5),
                     autoPlay: true)),
           ),
 
@@ -105,9 +117,9 @@ class Home extends StatelessWidget {
           // ),
 
           GridView.builder(
+            // shrinkWrap: true,
+            // scrollDirection: Axis.vertical,
             shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            physics: ScrollPhysics(),
             padding: const EdgeInsets.all(8.0),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -121,6 +133,7 @@ class Home extends StatelessWidget {
               child: SlideAnimation(
                 horizontalOffset: 50.0,
                 child: FadeInAnimation(
+                  curve: Curves.easeInCirc,
                   child: CustomCardItemHome(indexx: i),
                 ),
               ),

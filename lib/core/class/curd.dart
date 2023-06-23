@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:ecommerece/core/class/staterequest.dart';
 import 'package:ecommerece/core/functions/cheackinternet.dart';
+import 'package:ecommerece/view/test_vew_view.dart';
 // ignore: unused_import
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -16,21 +17,27 @@ import '../functions/check_internet.dart';
 // if state rsponse from http url databasre return the data fitch correct or did falure
 
 class Curd {
-  final NetworkInfoImp networkInfo =
+  static NetworkInfoImp networkInfo =
       NetworkInfoImp(InternetConnectionChecker());
   Future<Either<StatusRequest, Map>> postData(String linkurl, Map data) async {
-    var response;
-    response = await http.post(Uri.parse(linkurl), body: data);
+    // var response;
+    final http.Client client = http.Client();
+    // response = await http.post(Uri.parse(linkurl), body: data);
     try {
       if (await networkInfo.isConnected) {
         print("yes enter net =========");
         // print("you in Curd ");
-        response = await http.post(Uri.parse(linkurl), body: data);
+        // var response = await http.post(Uri.parse(linkurl), body: data);
 
-        if (response.statusCode == 404)
-          print("the error is 404 -------------- 404${response.statusCode}");
-        // print(
-        //     " ============= $response One Condiation and ${response.statusCode}");
+        var response = await client.get(
+          Uri.parse(linkurl),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        );
+
+        print(
+            " ============= $response One Condiation and ${response.statusCode}");
         if (response.statusCode == 200 || response.statusCode == 201) {
           print("you in Curd ");
           Map responsebody = jsonDecode(response.body);
@@ -44,7 +51,7 @@ class Curd {
         return const Left(StatusRequest.offlinefailure);
       }
     } catch (e) {
-      print("You in Catch ===========$e${response}");
+      print("You in Catch ===========$e");
 
       // print("you in Curd ");
       return const Left(StatusRequest.serverfailure);

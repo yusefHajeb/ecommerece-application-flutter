@@ -7,7 +7,7 @@ import 'controller/authinticationscreen_controller.dart';
 class MyBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<TestController>(() => TestController(), fenix: true);
-    // Get.put(Curd());
+    Get.lazyPut<Curd>(() => Curd(), fenix: true);
+    Get.put(Curd());
   }
 }

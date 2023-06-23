@@ -12,31 +12,50 @@ import 'package:http/http.dart' as http;
 
 class TestController extends GetxController {
   // late Curd curd;
+  // Curd card = Curd();
   TestData testData = TestData(Curd());
 
   List data = [];
   bool isLoading = false;
   late StatusRequest statusRequest;
 
-  static var client = http.Client();
+  //  var client = http.Client();
 
-  Future<void> getData() async {
+  getData() async {
     statusRequest = StatusRequest.loading;
     var response = await testData.getData();
-    print("$response-----------------controller");
+    // print("$response-----------------controller");
     statusRequest = handlingData(response);
 
     if (statusRequest == StatusRequest.success) {
       // data.addAll(json.decode(response.body));
-      data.addAll(response);
+      data.addAll(response['data']);
     }
+    update();
+  }
 
+  getData2() async {
+    var response = await http.post(
+      Uri.parse(AppLinke.usersData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    );
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      print("you in Curd ===============");
+      Map responsebody = jsonDecode(response.body);
+
+      data.addAll(responsebody['data']);
+    }
+    print('error');
     update();
   }
 
   @override
   void onInit() {
     getData();
+    // getData2();
+    print(data);
     super.onInit();
   }
 }

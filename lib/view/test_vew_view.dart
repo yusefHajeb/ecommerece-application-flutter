@@ -124,56 +124,55 @@ class TestView extends StatelessWidget {
         title: Text("Hello "),
       ),
       body: GetBuilder<TestController>(builder: (controller) {
-        if (controller.statusRequest == StatusRequest.loading) {
-          return const Center(child: Text("loading"));
-        } else if (controller.statusRequest == StatusRequest.serverfailure) {
-          print("${controller.data} ============");
-          return Center(child: Text("Server faluer"));
-        } else {
-          return FutureBuilder<void>(
-              future: controller.getData(),
-              builder: (BuildContext context, AsyncSnapshot snapshot) {
-                if (snapshot.hasData) {
-                  return ListView.builder(
-                    itemCount: controller.data.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return ListTile(
-                        title: Text(controller.data[index]['users_name']),
-                        subtitle: Text(controller.data[index]['users_email']),
-                      );
+        return controller.statusRequest == StatusRequest.loading
+            ? const Center(child: CircularProgressIndicator())
+            : controller.statusRequest == StatusRequest.serverfailure
+                ? const Center(child: Text("Server faluer"))
+                : FutureBuilder(
+                    future: controller.getData(),
+                    builder: (BuildContext context, AsyncSnapshot snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else if (snapshot.hasData) {
+                        return ListView.builder(
+                          itemCount: controller.data.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return ListTile(
+                              title: Text(controller.data[index]['users_name']),
+                              subtitle:
+                                  Text(controller.data[index]['users_email']),
+                            );
+                          },
+                        );
+                      } else {
+                        return const Center(child: Text('No data found.'));
+                      }
                     },
                   );
-                } else if (snapshot.hasError) {
-                  return Text('${snapshot.error}=========================');
-                }
-                // By default, show a loading spinner.
-                return const CircularProgressIndicator();
-              });
 
-          // return FutureBuilder<List<dynamic>>(
-          //   future: controller.getData(),
-          //   builder: (contex, snapshot) {
-          //     print("------------------listmain ${controller.data}");
-          //     return ListView.builder(
-          //       itemCount: snapshot.data?.length,
-          //       itemBuilder: (BuildContext context, int index) {
-          //         final item = snapshot.data![index];
-          //         return Card(
-          //           child: ListTile(title: item['users_name']),
-          //         );
-          //       },
-          //     );
-          //   },
-          // );
+        // return FutureBuilder<List<dynamic>>(
+        //   future: controller.getData(),
+        //   builder: (contex, snapshot) {
+        //     print("------------------listmain ${controller.data}");
+        //     return ListView.builder(
+        //       itemCount: snapshot.data?.length,
+        //       itemBuilder: (BuildContext context, int index) {
+        //         final item = snapshot.data![index];
+        //         return Card(
+        //           child: ListTile(title: item['users_name']),
+        //         );
+        //       },
+        //     );
+        //   },
+        // );
 
-          // return ListView.builder(
-          //   itemBuilder: (context, index) {
-          //     return Text("${controller.data}");
-          //   },
-          //   itemCount: controller.data.length,
-          // );
-          // }
-        }
+        // return ListView.builder(
+        //   itemBuilder: (context, index) {
+        //     return Text("${controller.data}");
+        //   },
+        //   itemCount: controller.data.length,
+        // );
+        // }
       }),
     );
   }

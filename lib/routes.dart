@@ -1,10 +1,9 @@
 import 'package:ecommerece/core/constant/routing.dart';
 import 'package:ecommerece/core/middleware/mymiddleware.dart';
 import 'package:ecommerece/view/screen/address/add_address.dart';
-// import 'package:ecommerece/view/screen/auth/authscreen.dart';
+import 'package:ecommerece/view/screen/auth/authscreen.dart';
 import 'package:ecommerece/view/screen/auth/forgetpassword/forget_password_screen.dart';
 import 'package:ecommerece/view/screen/auth/forgetpassword/restpassword.dart';
-// import 'package:ecommerece/view/screen/auth/success_singup.dart';
 import 'package:ecommerece/view/screen/auth/success_singin.dart';
 import 'package:ecommerece/view/screen/auth/forgetpassword/sucsses_reset_password.dart';
 import 'package:ecommerece/view/screen/auth/forgetpassword/verfirycode.dart';
@@ -17,20 +16,20 @@ import 'package:ecommerece/view/screen/onbradge.dart';
 import 'package:ecommerece/view/screen/productsdetails.dart';
 import 'package:ecommerece/view/screen/setting.dart';
 import 'package:ecommerece/view/test_vew_view.dart';
+
 import 'package:ecommerece/view/widget/home/custombuttonlike.dart';
-// import 'package:ecommerece/view/widget/items/listcatogeriesitems.dart';
-// import 'package:flutter/material.dart';
+
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 List<GetPage<dynamic>>? routes = [
-  // GetPage(
-  //     name: '/', page: () => const Launguage(), middlewares: [MyMiddleware()]),
-  // GetPage(
-  //     name: '/', page: () => const Launguage(), middlewares: [MyMiddleware()]),
   GetPage(
-      name: '/', page: () => const HomeScreen(), middlewares: [MyMiddleware()]),
+      name: '/', page: () => const Launguage(), middlewares: [MyMiddleware()]),
+  // GetPage(
+  //     name: '/', page: () => const Launguage(), middlewares: [MyMiddleware()]),
+  // GetPage(
+  //     name: '/', page: () => const HomeScreen(), middlewares: [MyMiddleware()]),
 
-  // GetPage(name: AppRout.authing, page: () => TestView()),
+  GetPage(name: AppRout.authing, page: () => const TestView()),
   GetPage(name: AppRout.onBoarding, page: () => const OnBordage()),
   GetPage(name: AppRout.forgetPassword, page: () => const ForgetPassword()),
   GetPage(name: AppRout.resetPassword, page: () => const ResetPassword()),
