@@ -77,14 +77,14 @@ class CatagoresItem extends StatelessWidget {
               Center(
                 child: Container(
                   padding: EdgeInsets.only(left: 4),
-                  margin: EdgeInsets.only(left: 7),
+                  margin: EdgeInsets.only(left: 4),
                   decoration: BoxDecoration(
                       // color: Colors.grey[200],
                       ),
                   child: Container(
-                    width: 48,
+                    width: 38,
 
-                    height: 42,
+                    height: 38,
                     // duration: const Duration(milliseconds: 200),
                     child: Material(
                         type: MaterialType.button,

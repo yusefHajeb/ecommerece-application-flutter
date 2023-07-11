@@ -27,7 +27,7 @@ class LoginControllerImp extends LoginController {
     // passwordContoler = TextEditingController();
     confirmControler = TextEditingController();
     showButtonForgent = false;
-    // TODO: implement onInit
+
     super.onInit();
   }
 

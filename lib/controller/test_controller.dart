@@ -1,14 +1,16 @@
 import 'dart:convert';
 
-import 'package:dartz/dartz.dart';
+// import 'package:dartz/dartz.dart';
 import 'package:ecommerece/core/class/curd.dart';
 import 'package:ecommerece/core/class/staterequest.dart';
 import 'package:ecommerece/core/functions/handlong.dart';
 import 'package:ecommerece/data/datasorce/static/remote/test_data.dart';
 import 'package:ecommerece/link_api.dart';
-import 'package:ecommerece/view/test_vew_view.dart';
+// import 'package:ecommerece/view/test_vew_view.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+
+import '../data/datasorce/mysqlpackege.dart';
 
 class TestController extends GetxController {
   // late Curd curd;
@@ -17,7 +19,7 @@ class TestController extends GetxController {
 
   List data = [];
   bool isLoading = false;
-  late StatusRequest statusRequest;
+  StatusRequest statusRequest = StatusRequest.loading;
 
   //  var client = http.Client();
 
@@ -53,7 +55,8 @@ class TestController extends GetxController {
 
   @override
   void onInit() {
-    getData();
+    getResults();
+    // getData();
     // getData2();
     print(data);
     super.onInit();

@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dartz/dartz.dart';
 import 'package:ecommerece/controller/home_controller.dart';
 import 'package:ecommerece/core/constant/color.dart';
 
@@ -33,7 +34,7 @@ class Home extends StatelessWidget {
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(
             height: 50,
@@ -89,7 +90,7 @@ class Home extends StatelessWidget {
                     enlargeCenterPage:
                         true, //to image show is biger than behaind
                     autoPlayCurve: Curves.fastOutSlowIn,
-                    autoPlayInterval: Duration(seconds: 5),
+                    autoPlayInterval: Duration(seconds: 3),
                     autoPlay: true)),
           ),
 
@@ -103,25 +104,15 @@ class Home extends StatelessWidget {
               title: "Popular Products",
               style: Theme.of(context).textTheme.headline2!),
 
-          // ListView.builder(
-          //   itemCount: 4,
-          //   shrinkWrap: true,
-          //   physics: ScrollPhysics(),
-          //   scrollDirection: Axis.horizontal,
-          //   itemBuilder: (BuildContext context, int i) {
-          //     return Container(
-          //         width: Get.width / 2,
-          //         height: Get.height / 5,
-          //         child: CustomCardItem(indexx: i));
-          //   },
-          // ),
-
           GridView.builder(
+            scrollDirection: Axis.vertical,
+
             // shrinkWrap: true,
             // scrollDirection: Axis.vertical,
             shrinkWrap: true,
+
             padding: const EdgeInsets.all(8.0),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
                 childAspectRatio: 0.7,
@@ -129,8 +120,9 @@ class Home extends StatelessWidget {
             itemCount: controller.itemsIndex.length,
             itemBuilder: (ctx, i) => AnimationConfiguration.staggeredList(
               position: i,
-              duration: const Duration(milliseconds: 375),
+              duration: Duration(milliseconds: 375),
               child: SlideAnimation(
+                curve: Curves.easeInOut,
                 horizontalOffset: 50.0,
                 child: FadeInAnimation(
                   curve: Curves.easeInCirc,

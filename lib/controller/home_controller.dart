@@ -57,12 +57,15 @@ class HomeContollerImp extends HomeContrller {
   }
 
   List<Widget> listWidget = [
-    Column(
-      children: const [
-        Material(
-          child: Home(),
-        )
-      ],
+    SingleChildScrollView(
+      child: Column(
+        children: const [
+          Material(
+            type: MaterialType.canvas,
+            child: Home(),
+          )
+        ],
+      ),
     ),
     Column(
       children: [Material(child: Text("Faveret"))],

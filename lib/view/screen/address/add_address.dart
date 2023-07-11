@@ -13,7 +13,12 @@ class AddAdressScreen extends StatelessWidget {
           title: Text("Add Address"),
         ),
         body: Column(
-          children: [],
+          children: [
+            Container(
+              width: double.infinity,
+              height: 400,
+            )
+          ],
         ));
   }
 }

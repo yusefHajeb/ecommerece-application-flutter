@@ -67,7 +67,7 @@ class CustomCardItemHome extends StatelessWidget {
                           height: 3,
                           child: ListView.builder(
                             shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
+                            scrollDirection: Axis.vertical,
                             itemCount: 5,
                             itemBuilder: (BuildContext context, int index) {
                               return const Icon(

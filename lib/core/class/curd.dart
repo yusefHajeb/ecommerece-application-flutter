@@ -8,6 +8,7 @@ import 'package:ecommerece/view/test_vew_view.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
+import '../../data/datasorce/mysqlpackege.dart';
 import '../functions/check_internet.dart';
 
 // final bool = NetworkInfoImp(c).isConnected;
@@ -20,6 +21,7 @@ class Curd {
   static NetworkInfoImp networkInfo =
       NetworkInfoImp(InternetConnectionChecker());
   Future<Either<StatusRequest, Map>> postData(String linkurl, Map data) async {
+    // getResults();
     // var response;
     final http.Client client = http.Client();
     // response = await http.post(Uri.parse(linkurl), body: data);
