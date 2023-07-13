@@ -15,45 +15,22 @@ class BottomNavigationBarBroduct extends GetView<ProductDetailesControllerImp> {
     Get.put(ProductDetailesControllerImp);
     return GetBuilder<ProductDetailesControllerImp>(
       builder: (controller) => Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              width: Get.width / 3,
-              decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(30)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        color: AppColor.secandryColor,
-                        borderRadius: BorderRadius.circular(50)),
-                    child: IconButton(
-                        onPressed: () {
-                          controller.icrementToBasket();
-                        },
-                        icon: Icon(Icons.add)),
+                height: 40,
+                width: Get.width / 3,
+                decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(30)),
+                child: Center(
+                  child: Text(
+                    "'\$0 ",
+                    textAlign: TextAlign.center,
                   ),
-                  Text("${controller.incrementOrDecrease}"),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: AppColor.backgroundScreen,
-                        borderRadius: BorderRadius.circular(50)),
-                    child: IconButton(
-                        onPressed: () {
-                          controller.descreaseBasket();
-                        },
-                        icon: Icon(
-                          Icons.remove,
-                          color: Colors.white,
-                        )),
-                  ),
-                ],
-              ),
-            ),
+                )),
             Bouncing(
               onPress: () {},
               child: Container(

@@ -14,7 +14,6 @@ class CustomInpoutSearch extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
           horizontal: 10,
         ),
-      //  margin: EdgeInsets.only(right: 20, left: 5),
         decoration: BoxDecoration(
           color: Colors.grey[200],
           borderRadius: BorderRadius.circular(10),

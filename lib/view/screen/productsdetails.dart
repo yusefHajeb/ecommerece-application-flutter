@@ -51,16 +51,15 @@ class ProductDetalesScreen extends StatelessWidget {
         body: SafeArea(
           child: CustomScrollView(
             slivers: [
-              // appBar(context),
-
-              SliverAppBarProduct(),
+              const SliverAppBarProduct(),
               SliverPadding(
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 14),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 14),
                 sliver: SliverToBoxAdapter(
                     child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     // CustomTexttile(title: "Popular Products"),
@@ -103,7 +102,7 @@ class ProductDetalesScreen extends StatelessWidget {
                     ),
 
                     CustomIncrimentAndPrice(data: data, controller: controller),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Container(
@@ -116,7 +115,7 @@ class ProductDetalesScreen extends StatelessWidget {
                                 padding: EdgeInsets.only(left: i == 0 ? 0 : 14),
                                 child: GestureDetector(
                                   onTap: () {
-                                    // controller.changeIndexx(i);
+                                    controller.changeIndexx(i);
                                   },
                                   child: Container(
                                     width: 70,
