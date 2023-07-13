@@ -1,13 +1,8 @@
 import 'package:ecommerece/controller/items_controller.dart';
 import 'package:ecommerece/view/widget/home/custombuttonnotification.dart';
-import 'package:ecommerece/view/widget/home/customcard_items.dart';
-import 'package:ecommerece/view/widget/home/customscrollcatagory.dart';
 import 'package:ecommerece/view/widget/items/custom_card_items.dart';
 import 'package:ecommerece/view/widget/items/listcategores_items.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
@@ -47,6 +42,7 @@ class ItemsScreen extends StatelessWidget {
                     height: 20,
                   ),
                   GridView.builder(
+                    physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     padding: const EdgeInsets.all(8.0),
                     gridDelegate:

@@ -1,16 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dartz/dartz.dart';
 import 'package:ecommerece/controller/home_controller.dart';
-import 'package:ecommerece/core/constant/color.dart';
-
 import 'package:ecommerece/core/constant/imageassets.dart';
-import 'package:ecommerece/view/widget/bouncingbutton.dart';
-// import 'package:velocity_x/velocity_x.dart';
 import 'package:ecommerece/view/widget/home/custombuttonnotification.dart';
 import 'package:ecommerece/view/widget/home/customcard_items.dart';
 import 'package:ecommerece/view/widget/home/custominput_search.dart';
 import 'package:ecommerece/view/widget/home/customtitlename.dart';
-import 'package:ecommerece/view/widget/home/viewcardimage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -110,7 +104,7 @@ class Home extends StatelessWidget {
             // shrinkWrap: true,
             // scrollDirection: Axis.vertical,
             shrinkWrap: true,
-
+            physics: NeverScrollableScrollPhysics(),
             padding: const EdgeInsets.all(8.0),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
