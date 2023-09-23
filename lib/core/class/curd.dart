@@ -33,14 +33,11 @@ class Curd {
 
         var response = await client.get(
           Uri.parse(linkurl),
-          headers: {
-            "Content-Type": "application/json",
-          },
         );
 
         print(
             " ============= $response One Condiation and ${response.statusCode}");
-        if (response.statusCode == 200 || response.statusCode == 201) {
+        if (response.statusCode == 200) {
           print("you in Curd ");
           Map responsebody = jsonDecode(response.body);
           print(responsebody);
@@ -49,7 +46,6 @@ class Curd {
           return const Left(StatusRequest.serverfailure);
         }
       } else {
-        print("You in OfflineFailure ===========");
         return const Left(StatusRequest.offlinefailure);
       }
     } catch (e) {

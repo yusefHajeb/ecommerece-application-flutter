@@ -11,7 +11,7 @@ class MyMiddleware extends GetMiddleware {
   // Curd curd = Get.find();
   @override
   RouteSettings? redirect(String? router) {
-    if (myServices.sharedPreferences.getBool('middleware') == true) {
+    if (myServices.sharedPreferences!.getBool('middleware') == true) {
       return const RouteSettings(name: AppRout.homeScreen, arguments: '');
     }
   }

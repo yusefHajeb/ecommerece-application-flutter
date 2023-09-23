@@ -4,7 +4,7 @@ Future<void> getResults() async {
   var seting = new ConnectionSettings(
     host: "localhost",
     db: "ecommerce",
-    port: 3306,
+    // port: 3306,
     user: 'root',
     password: '',
   );

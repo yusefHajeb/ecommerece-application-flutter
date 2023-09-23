@@ -19,7 +19,7 @@ class OnBoardingControllerImp extends OnBoardingController {
     MyServices myServices = Get.find();
     if (currentPage > onbordingList.length - 1) {
       Get.offAllNamed(AppRout.authing);
-      myServices.sharedPreferences.setBool('middleware', true);
+      myServices.sharedPreferences!.setBool('middleware', true);
     } else {
       pageController.animateToPage(currentPage,
           duration: const Duration(milliseconds: 800), curve: Curves.easeInOut);

@@ -82,7 +82,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerece/controller/test_controller.dart';
 import 'package:ecommerece/core/class/curd.dart';
 import 'package:ecommerece/core/class/staterequest.dart';
-import 'package:ecommerece/link_api.dart';
+import 'package:ecommerece/core/constant/link_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/src/widgets/framework.dart';

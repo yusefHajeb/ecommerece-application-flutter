@@ -7,12 +7,12 @@ abstract class SetteController extends GetxController {
 }
 
 class SettingControllerImp extends SetteController {
-  MyServices myServices = MyServices();
+  MyServices myServices = Get.find();
 
   @override
   logOut() {
-    myServices.sharedPreferences.clear();
-    Get.offAllNamed(AppRout.authing);
+    myServices.sharedPreferences!.clear();
+    Get.offAllNamed(AppRout.onBoarding);
     update();
   }
 }

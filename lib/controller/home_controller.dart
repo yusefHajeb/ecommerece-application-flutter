@@ -43,8 +43,8 @@ class HomeContollerImp extends HomeContrller {
   String? id;
   @override
   initialData() {
-    username = myService.sharedPreferences.getString('username');
-    id = myService.sharedPreferences.getString('id');
+    username = myService.sharedPreferences!.getString('username');
+    id = myService.sharedPreferences!.getString('id');
   }
 
   @override

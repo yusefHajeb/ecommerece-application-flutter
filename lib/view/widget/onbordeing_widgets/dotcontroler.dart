@@ -22,7 +22,7 @@ class CustomDotConterllerOnBordeing extends StatelessWidget {
                               color: AppColor.secandryColor,
                               borderRadius: BorderRadius.circular(50)),
                           height: 8,
-                          width: controller.currentPage == index ? 23 : 7,
+                          width: controller.currentPage == index ? 20 : 7,
                           alignment: Alignment.center,
                         ))
               ],

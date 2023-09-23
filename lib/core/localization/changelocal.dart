@@ -11,14 +11,14 @@ class LocaleContoller extends GetxController {
     Locale local = Locale(language);
 
     appTheme = language == 'ar' ? themeArabic : themeEnglish;
-    myServices.sharedPreferences.setString("lange", language);
+    myServices.sharedPreferences!.setString("lange", language);
     Get.changeTheme(appTheme);
     Get.updateLocale(local);
   }
 
   @override
   void onInit() {
-    String? lang = myServices.sharedPreferences.getString('lange');
+    String? lang = myServices.sharedPreferences!.getString('lange');
     if (lang == "ar") {
       language = const Locale("ar");
       appTheme = themeArabic;

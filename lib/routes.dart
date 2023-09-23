@@ -29,7 +29,7 @@ List<GetPage<dynamic>>? routes = [
   // GetPage(
   //     name: '/', page: () => const HomeScreen(), middlewares: [MyMiddleware()]),
 
-  // GetPage(name: AppRout.authing, page: () => const TestView()),
+  GetPage(name: AppRout.authing, page: () => const TestView()),
   GetPage(name: AppRout.onBoarding, page: () => const OnBordage()),
   GetPage(name: AppRout.forgetPassword, page: () => const ForgetPassword()),
   GetPage(name: AppRout.resetPassword, page: () => const ResetPassword()),
@@ -40,12 +40,14 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRout.successSingUp, page: () => SuccessSingIn()),
   GetPage(
       name: AppRout.verfiyC0deSingeUp, page: () => const VerfiryCodeSingeUp()),
-  GetPage(name: AppRout.homeScreen, page: () => HomeScreen()),
+  // GetPage(name: AppRout.homeScreen, page: () => HomeScreen()), //check
+  GetPage(name: AppRout.homeScreen, page: () => TestView()), //check
+
   GetPage(
     name: AppRout.likeButton,
     page: () => CustomButtonLike(),
   ),
-  GetPage(name: AppRout.authing, page: () => const AuthSceen()),
+  // GetPage(name: AppRout.authing, page: () => const AuthSceen()),
 
   GetPage(name: AppRout.items, page: () => const ItemsScreen()),
   GetPage(
