@@ -23,13 +23,14 @@ dependencies:
   
   firebase_core: ^2.13.1
   firebase_messaging: ^14.6.2
-  cached_network_image: ^3.2.3
+  # cached_network_image: ^3.2.3
   
   carousel_slider: 
   flutter_staggered_animations: ^1.1.1
   google_maps_flutter: ^2.3.0
   internet_connection_checker: ^1.0.0+1
   mysql1: ^0.20.0
+  cached_network_image: ^3.3.0
   # connectivity: ^3.0.6
   # fluttertoast: ^8.2.2
   # like_button: ^2.0.5
