@@ -7,7 +7,6 @@ abstract class ForgetPasswordController extends GetxController {
 }
 
 class ForgetPasswordControllerImp extends ForgetPasswordController {
-  @override
   late TextEditingController email;
   // late TextEditingController emailControler;
   @override
@@ -25,7 +24,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
 
   @override
   goToverfiction() {
-    Get.offNamed(AppRout.verfiryCode);
+    Get.offNamed(AppRout.verifyCode);
     // Get.offNamed(AppRout.resetPassword);
   }
 }

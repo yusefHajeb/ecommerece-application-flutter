@@ -21,11 +21,11 @@ class CustomInpoutSearch extends StatelessWidget {
         child: TextFormField(
           style: Theme.of(context)
               .textTheme
-              .headline4!
+              .headlineMedium!
               .copyWith(fontWeight: FontWeight.w400),
           decoration: InputDecoration(
             hintText: title,
-            hintStyle: Theme.of(context).textTheme.headline4!,
+            hintStyle: Theme.of(context).textTheme.headlineMedium!,
             focusedBorder: InputBorder.none,
             prefixIcon: const Icon(
               Icons.search,

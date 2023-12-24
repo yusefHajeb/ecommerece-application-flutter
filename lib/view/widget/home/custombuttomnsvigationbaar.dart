@@ -10,14 +10,16 @@ class CustomButtomNavigationBar extends StatelessWidget {
 
   var currentIndex = 0;
 
+  CustomButtomNavigationBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    Get.put(HomeContollerImp());
-    return GetBuilder<HomeContollerImp>(
+    Get.put(HomeControllerImp());
+    return GetBuilder<HomeControllerImp>(
       builder: (controller) => Container(
         child: Container(
-          margin: EdgeInsets.all(20),
+          margin: const EdgeInsets.all(20),
           height: screenWidth * .155,
           decoration: BoxDecoration(
             color: Colors.white,
@@ -25,7 +27,7 @@ class CustomButtomNavigationBar extends StatelessWidget {
               BoxShadow(
                 color: Colors.black.withOpacity(.15),
                 blurRadius: 30,
-                offset: Offset(0, 10),
+                offset: const Offset(0, 10),
               ),
             ],
             borderRadius: BorderRadius.circular(50),
@@ -47,7 +49,7 @@ class CustomButtomNavigationBar extends StatelessWidget {
                     width: screenWidth * .1725,
                     child: Center(
                       child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
+                        duration: const Duration(seconds: 1),
                         curve: Curves.fastLinearToSlowEaseIn,
                         height: index == controller.currentIndex
                             ? screenWidth * .12

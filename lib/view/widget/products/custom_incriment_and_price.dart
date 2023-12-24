@@ -12,7 +12,7 @@ class CustomIncrimentAndPrice extends StatelessWidget {
   });
 
   final ItemsModel data;
-  final ProductDetailesControllerImp controller;
+  final ProductDetailsControllerImp controller;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class CustomIncrimentAndPrice extends StatelessWidget {
                     borderRadius: BorderRadius.circular(50)),
                 child: IconButton(
                     onPressed: () {
-                      controller.descreaseBasket();
+                      controller.describesBasket();
                     },
                     icon: Icon(
                       Icons.remove,

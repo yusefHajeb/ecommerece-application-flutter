@@ -1,7 +1,7 @@
-class OnborderingModel {
+class OnboardingModel {
   final String? title;
   final String? image;
   final String? paragraph;
 
-  OnborderingModel({this.title, this.image, this.paragraph});
+  OnboardingModel({this.title, this.image, this.paragraph});
 }

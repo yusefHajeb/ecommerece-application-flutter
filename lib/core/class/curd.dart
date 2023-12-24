@@ -2,13 +2,10 @@ import 'dart:convert';
 // import 'dart:core';
 import 'package:dartz/dartz.dart';
 import 'package:ecommerece/core/class/staterequest.dart';
-import 'package:ecommerece/core/functions/cheackinternet.dart';
-import 'package:ecommerece/view/test_vew_view.dart';
 // ignore: unused_import
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
-import '../../data/datasorce/mysqlpackege.dart';
 import '../functions/check_internet.dart';
 
 // final bool = NetworkInfoImp(c).isConnected;
@@ -27,7 +24,6 @@ class Curd {
     // response = await http.post(Uri.parse(linkurl), body: data);
     try {
       if (await networkInfo.isConnected) {
-        print("yes enter net =========");
         // print("you in Curd ");
         // var response = await http.post(Uri.parse(linkurl), body: data);
 

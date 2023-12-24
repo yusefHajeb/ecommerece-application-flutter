@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 
 import '../bouncingbutton.dart';
 
-class SliverAppBarProduct extends GetView<ProductDetailesControllerImp> {
+class SliverAppBarProduct extends GetView<ProductDetailsControllerImp> {
   const SliverAppBarProduct({super.key});
 
   @override
@@ -56,12 +56,11 @@ class SliverAppBarProduct extends GetView<ProductDetailesControllerImp> {
         centerTitle: true,
 
         // collapseMode: CollapseMode.parallax,
-        background:
-            GetBuilder<ProductDetailesControllerImp>(builder: (context) {
+        background: GetBuilder<ProductDetailsControllerImp>(builder: (context) {
           return Hero(
-            tag: ImageAssets.get_image[controller.indexx],
+            tag: ImageAssets.get_image[controller.index],
             child: Image.asset(
-              ImageAssets.get_image[controller.indexx],
+              ImageAssets.get_image[controller.index],
               fit: BoxFit.cover,
             ),
           );

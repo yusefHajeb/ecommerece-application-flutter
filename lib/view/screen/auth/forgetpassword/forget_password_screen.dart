@@ -1,14 +1,6 @@
-import 'dart:math';
-
-import 'package:ecommerece/controller/forgetpassword_controller.dart';
-import 'package:ecommerece/controller/forgetpassword_controller.dart';
-import 'package:ecommerece/controller/forgetpassword_controller.dart';
-import 'package:ecommerece/controller/login_controller.dart';
-import 'package:ecommerece/controller/verfiction_controller.dart';
+import 'package:ecommerece/controller/forget_password_controller.dart';
 import 'package:ecommerece/core/constant/color.dart';
 import 'package:ecommerece/core/functions/validinpout.dart';
-import 'package:ecommerece/view/widget/auth/coustom_logoheader.dart';
-import 'package:ecommerece/view/widget/auth/custom_auth_cart.dart';
 import 'package:ecommerece/view/widget/auth/custom_button_matierial.dart';
 import 'package:ecommerece/view/widget/auth/custom_text_file.dart';
 import 'package:flutter/material.dart';
@@ -19,11 +11,11 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Map<String, String> _utheMap = {
+    Map<String, String> utheMap = {
       'password': ' ',
       'email': '',
     };
-    final GlobalKey<FormState> _fromKey = GlobalKey<FormState>();
+    final GlobalKey<FormState> fromKey = GlobalKey<FormState>();
     ForgetPasswordControllerImp controller =
         Get.put(ForgetPasswordControllerImp());
     final size = MediaQuery.of(context).size;
@@ -55,19 +47,19 @@ class ForgetPassword extends StatelessWidget {
                           "Check Email".tr,
                           style: Theme.of(context)
                               .textTheme
-                              .headline1!
+                              .displayLarge!
                               .copyWith(fontSize: 30),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(
                           "Please , Enter Your Email Adress To Recive Averifiction code"
                               .tr,
-                          style: Theme.of(context).textTheme.headline3,
+                          style: Theme.of(context).textTheme.displaySmall,
                           textAlign: TextAlign.center,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                       ],
@@ -86,16 +78,16 @@ class ForgetPassword extends StatelessWidget {
                           duration: const Duration(milliseconds: 300),
                           curve: Curves.bounceIn,
                           height: 100,
-                          constraints: BoxConstraints(minHeight: 260),
+                          constraints: const BoxConstraints(minHeight: 260),
                           width: size.width * 0.75,
-                          padding: EdgeInsets.all(16),
+                          padding: const EdgeInsets.all(16),
                           child: Form(
-                              key: _fromKey,
+                              key: fromKey,
                               child: SingleChildScrollView(
                                 child: Column(
                                   children: [
                                     CustomTextFormEmail(
-                                      map: _utheMap,
+                                      map: utheMap,
                                       valid: (val) {
                                         return validInput(
                                             val!, 5, 100, 'email');
@@ -106,7 +98,7 @@ class ForgetPassword extends StatelessWidget {
                                     ),
                                     CustomButtonOK(
                                         text: "Check",
-                                        submet: () {
+                                        submit: () {
                                           controller.goToverfiction();
                                         })
                                   ],

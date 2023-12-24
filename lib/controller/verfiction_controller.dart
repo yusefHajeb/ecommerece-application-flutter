@@ -1,5 +1,4 @@
 import 'package:ecommerece/core/constant/routing.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class VerifictionController extends GetxController {
@@ -7,7 +6,6 @@ abstract class VerifictionController extends GetxController {
 }
 
 class VerifictionControllerImp extends VerifictionController {
-  @override
   late String code;
   // late TextEditingController emailControler;
   @override

@@ -10,7 +10,7 @@ class SuccessResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> _fromKey = GlobalKey<FormState>();
+    // final GlobalKey<FormState> fromKey = GlobalKey<FormState>();
     SuccesSResetPasswordControllerImp controller =
         Get.put(SuccesSResetPasswordControllerImp());
     final size = MediaQuery.of(context).size;
@@ -50,7 +50,7 @@ class SuccessResetPassword extends StatelessWidget {
                     const Spacer(),
                     CustomButtonOK(
                       text: "Go To Login",
-                      submet: () {
+                      submit: () {
                         controller.goToLogin();
                       },
                     ),

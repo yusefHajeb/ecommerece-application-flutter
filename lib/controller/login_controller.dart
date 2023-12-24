@@ -6,35 +6,32 @@ abstract class LoginController extends GetxController {
   login();
   goToSingUp();
   goToForgetPassword();
-  goToverfiction();
+  goToVerification();
   changeValueForgetButton();
 }
 
 class LoginControllerImp extends LoginController {
   late GlobalKey<FormState> formState = GlobalKey<FormState>();
-  late TextEditingController passwordContoler;
-  late TextEditingController emailControler;
-  late TextEditingController usernameControler;
-  late TextEditingController phonControler;
-  late TextEditingController confirmControler;
-  bool showButtonForgent = false;
+  late TextEditingController passwordController;
+  late TextEditingController emailController;
+  late TextEditingController usernameController;
+  late TextEditingController phonController;
+  late TextEditingController confirmController;
+  bool showButtonForget = false;
   @override
   void onInit() {
-    passwordContoler = TextEditingController();
-    emailControler = TextEditingController()..text = '';
-    phonControler = TextEditingController();
-    usernameControler = TextEditingController();
-    // passwordContoler = TextEditingController();
-    confirmControler = TextEditingController();
-    showButtonForgent = false;
+    passwordController = TextEditingController();
+    emailController = TextEditingController()..text = '';
+    phonController = TextEditingController();
+    usernameController = TextEditingController();
+    confirmController = TextEditingController();
+    showButtonForget = false;
 
     super.onInit();
   }
 
   @override
-  goToSingUp() {
-    // throw UnimplementedError();
-  }
+  goToSingUp() {}
 
   @override
   login() {
@@ -46,15 +43,14 @@ class LoginControllerImp extends LoginController {
     }
   }
 
-  @override
   goToSingIn() {
-    showButtonForgent = false;
+    showButtonForget = false;
     throw UnimplementedError();
   }
 
   @override
   changeValueForgetButton() {
-    showButtonForgent = true;
+    showButtonForget = true;
     // TODO: implement changeValueForgetButton
     // throw UnimplementedError();
   }
@@ -65,18 +61,18 @@ class LoginControllerImp extends LoginController {
   }
 
   @override
-  goToverfiction() {
+  goToVerification() {
     // TODO: implement goToverfiction
     throw UnimplementedError();
   }
 
   @override
   void dispose() {
-    emailControler.dispose();
-    passwordContoler.dispose();
-    phonControler.dispose();
-    usernameControler.dispose();
-    confirmControler.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    phonController.dispose();
+    usernameController.dispose();
+    confirmController.dispose();
 
     super.dispose();
   }

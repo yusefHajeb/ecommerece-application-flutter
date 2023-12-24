@@ -12,16 +12,16 @@ class OnBordage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(OnBoardingControllerImp());
-    return Scaffold(
+    return const Scaffold(
         backgroundColor: AppColor.backgroundScreen,
         body: SafeArea(
             child: Column(
           children: [
-            const Expanded(flex: 3, child: CustomSlider()),
+            Expanded(flex: 3, child: CustomSlider()),
             Expanded(
                 flex: 1,
                 child: Column(
-                  children: const [
+                  children: [
                     CustomDotConterllerOnBordeing(),
                     Spacer(flex: 2),
                     CustomButtonOnBording(),

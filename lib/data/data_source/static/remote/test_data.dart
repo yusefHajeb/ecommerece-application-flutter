@@ -1,6 +1,4 @@
-import 'package:dartz/dartz.dart';
 import 'package:ecommerece/core/constant/link_api.dart';
-import 'package:http/http.dart' as http;
 
 import '../../../../core/class/curd.dart';
 

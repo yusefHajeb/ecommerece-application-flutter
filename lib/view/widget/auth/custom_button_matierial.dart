@@ -2,10 +2,10 @@ import 'package:ecommerece/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtonOK extends StatelessWidget {
-  final void Function()? submet;
+  final void Function()? submit;
   final String text;
 
-  const CustomButtonOK({super.key, this.submet, required this.text});
+  const CustomButtonOK({super.key, this.submit, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class CustomButtonOK extends StatelessWidget {
       // minWidth: 100,
 
       onPressed: () {
-        return submet!();
+        return submit!();
       },
       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
       color: AppColor.backgroundScreen,

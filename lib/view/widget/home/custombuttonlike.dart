@@ -1,19 +1,20 @@
 import 'package:ecommerece/controller/home_controller.dart';
-import 'package:ecommerece/view/screen/homescreen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class CustomButtonLike extends StatelessWidget {
   @override
   bool isPressed = true;
   bool isPressed2 = true;
   bool isHighlighted = true;
 
+  CustomButtonLike({super.key});
+
   @override
   Widget build(BuildContext context) {
-    Get.put(HomeContollerImp());
-    return GetBuilder<HomeContollerImp>(
+    Get.put(HomeControllerImp());
+    return GetBuilder<HomeControllerImp>(
       builder: (controller) => Container(
         child: InkWell(
           highlightColor: Colors.transparent,
@@ -31,7 +32,7 @@ class CustomButtonLike extends StatelessWidget {
             height: isHighlighted ? 50 : 45,
             width: isHighlighted ? 50 : 45,
             curve: Curves.fastLinearToSlowEaseIn,
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             child: controller.isPressed
                 ? Icon(
                     Icons.favorite_border,

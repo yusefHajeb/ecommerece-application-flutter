@@ -1,6 +1,6 @@
 import 'package:ecommerece/controller/onboarding_contrller.dart';
 import 'package:ecommerece/core/constant/color.dart';
-import 'package:ecommerece/data/datasorce/static/static.dart';
+import 'package:ecommerece/data/data_source/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,9 +14,9 @@ class CustomDotConterllerOnBordeing extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ...List.generate(
-                    onbordingList.length,
+                    onboardingList.length,
                     (index) => AnimatedContainer(
-                          duration: const Duration(milliseconds: 900),
+                          duration: const Duration(milliseconds: 500),
                           margin: const EdgeInsets.only(right: 4),
                           decoration: BoxDecoration(
                               color: AppColor.secandryColor,

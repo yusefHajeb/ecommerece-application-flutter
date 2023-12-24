@@ -50,7 +50,7 @@ class SuccessSingIn extends StatelessWidget {
                     const Spacer(),
                     CustomButtonOK(
                       text: "Go To Login",
-                      submet: () {
+                      submit: () {
                         controller.goToLogin();
                       },
                     ),

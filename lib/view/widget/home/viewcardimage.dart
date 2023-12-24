@@ -2,11 +2,7 @@ import 'package:ecommerece/controller/home_controller.dart';
 import 'package:ecommerece/core/constant/data_cash.dart';
 import 'package:ecommerece/view/widget/home/cardimaeg.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 class CustomCurdImage extends StatelessWidget {
   const CustomCurdImage({super.key});
@@ -14,8 +10,8 @@ class CustomCurdImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    Get.put(HomeContollerImp);
-    return GetBuilder<HomeContollerImp>(
+    Get.put(HomeControllerImp);
+    return GetBuilder<HomeControllerImp>(
       builder: (controller) => Container(
         padding: const EdgeInsets.only(top: 0, bottom: 0),
         width: double.infinity,
@@ -44,12 +40,12 @@ class CustomCurdImage extends StatelessWidget {
 class CustomCardView extends StatelessWidget {
   final int index;
   final Size s;
-  const CustomCardView(this.index, this.s);
+  const CustomCardView(this.index, this.s, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(HomeContollerImp());
-    return GetBuilder<HomeContollerImp>(
+    Get.put(HomeControllerImp());
+    return GetBuilder<HomeControllerImp>(
       builder: (controller) => AnimatedBuilder(
         animation: controller.pageController,
         builder: (context, child) {

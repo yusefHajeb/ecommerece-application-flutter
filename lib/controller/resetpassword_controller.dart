@@ -3,18 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class ResetPasswordController extends GetxController {
-  goToSucsses();
+  goToSusses();
   checkPassword();
 }
 
 class ResetPasswordControllerImp extends ResetPasswordController {
-  @override
   late TextEditingController password;
   late TextEditingController rePassword;
   GlobalKey<FormState> formSate = GlobalKey<FormState>();
   @override
   void onInit() {
-    print("---------------onInit Regester");
     password = TextEditingController();
     rePassword = TextEditingController();
     super.onInit();
@@ -27,9 +25,9 @@ class ResetPasswordControllerImp extends ResetPasswordController {
     super.dispose();
   }
 
-  goToSucsses() {
-    Get.offNamed(AppRout.successResetPassored);
-    // Get.offNamed(AppRout.resetPassword);
+  @override
+  goToSusses() {
+    Get.offNamed(AppRout.successResetPassword);
   }
 
   @override

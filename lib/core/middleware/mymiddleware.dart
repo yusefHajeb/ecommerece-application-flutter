@@ -1,4 +1,3 @@
-import 'package:ecommerece/core/class/curd.dart';
 import 'package:ecommerece/core/constant/routing.dart';
 import 'package:ecommerece/core/services/services.dart';
 import 'package:flutter/material.dart';
@@ -14,5 +13,6 @@ class MyMiddleware extends GetMiddleware {
     if (myServices.sharedPreferences!.getBool('middleware') == true) {
       return const RouteSettings(name: AppRout.homeScreen, arguments: '');
     }
+    return null;
   }
 }

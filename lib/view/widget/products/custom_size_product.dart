@@ -9,7 +9,7 @@ class CustomSizeProducts extends StatelessWidget {
     required this.controller,
   });
 
-  final ProductDetailesControllerImp controller;
+  final ProductDetailsControllerImp controller;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class CustomSizeProducts extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(
                         width: 1.6,
-                        color: controller.indexsize == i
+                        color: controller.indexSize == i
                             ? AppColor.secandryColor
                             : AppColor.backgroundScreen),
                     borderRadius: BorderRadius.circular(10),

@@ -16,8 +16,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeContollerImp controller = Get.put(HomeContollerImp());
-    var size = MediaQuery.of(context).size;
+    HomeControllerImp controller = Get.put(HomeControllerImp());
+
     List imgList = [
       ImageAssets.product6,
       ImageAssets.category3,
@@ -54,22 +54,24 @@ class Home extends StatelessWidget {
             child: CarouselSlider(
                 items: imgList.map((imgUrl) {
                   return Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        boxShadow: kElevationToShadow[2],
-                        borderRadius: BorderRadius.circular(20),
-                        // border: Border.all(color: Colors.black38),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      boxShadow: kElevationToShadow[2],
+                      borderRadius: BorderRadius.circular(20),
+                      // border: Border.all(color: Colors.black38),
+                    ),
+                    // margin: EdgeInsets.symmetric(horizontal: 10),
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
+                      child: InteractiveViewer(
+                        clipBehavior: Clip.hardEdge,
+                        child: Image.asset(
+                          imgUrl,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      // margin: EdgeInsets.symmetric(horizontal: 10),
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          child: InteractiveViewer(
-                            clipBehavior: Clip.hardEdge,
-                            child: Image.asset(
-                              imgUrl,
-                              fit: BoxFit.cover,
-                            ),
-                          )));
+                    ),
+                  );
                 }).toList(),
                 options: CarouselOptions(
                     height: 185,
@@ -100,13 +102,10 @@ class Home extends StatelessWidget {
 
           GridView.builder(
             scrollDirection: Axis.vertical,
-
-            // shrinkWrap: true,
-            // scrollDirection: Axis.vertical,
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             padding: const EdgeInsets.all(8.0),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
                 childAspectRatio: 0.7,
@@ -114,7 +113,7 @@ class Home extends StatelessWidget {
             itemCount: controller.itemsIndex.length,
             itemBuilder: (ctx, i) => AnimationConfiguration.staggeredList(
               position: i,
-              duration: Duration(milliseconds: 375),
+              duration: const Duration(milliseconds: 375),
               child: SlideAnimation(
                 curve: Curves.easeInOut,
                 horizontalOffset: 50.0,

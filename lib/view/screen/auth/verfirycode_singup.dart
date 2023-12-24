@@ -1,15 +1,7 @@
-import 'dart:math';
-
-import 'package:ecommerece/controller/login_controller.dart';
-import 'package:ecommerece/controller/resetpassword_controller.dart';
-import 'package:ecommerece/controller/verfiction_controller.dart';
 import 'package:ecommerece/controller/verfiction_singeup_controller.dart';
 import 'package:ecommerece/core/constant/color.dart';
 import 'package:ecommerece/core/functions/alertexitapp.dart';
-import 'package:ecommerece/core/functions/validinpout.dart';
 
-import 'package:ecommerece/view/widget/auth/custom_button_matierial.dart';
-import 'package:ecommerece/view/widget/auth/custom_text_file.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
@@ -54,7 +46,7 @@ class VerfiryCodeSingeUp extends StatelessWidget {
                             "Check Code Singe Up".tr,
                             style: Theme.of(context)
                                 .textTheme
-                                .headline1!
+                                .displayLarge!
                                 .copyWith(fontSize: 30),
                           ),
                           const SizedBox(
@@ -62,7 +54,7 @@ class VerfiryCodeSingeUp extends StatelessWidget {
                           ),
                           Text(
                             "3".tr,
-                            style: Theme.of(context).textTheme.headline3,
+                            style: Theme.of(context).textTheme.displaySmall,
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(
@@ -76,7 +68,7 @@ class VerfiryCodeSingeUp extends StatelessWidget {
                       flex: size.width > 600 ? 2 : 1,
                       child: OtpTextField(
                         numberOfFields: 5,
-                        textStyle: TextStyle(color: AppColor.white),
+                        textStyle: const TextStyle(color: AppColor.white),
                         focusedBorderColor: AppColor.secandryColor,
                         decoration: const InputDecoration(
                           focusColor: AppColor.secandryColor,
@@ -94,15 +86,15 @@ class VerfiryCodeSingeUp extends StatelessWidget {
                         //runs when every textfield is filled
                         onSubmit: (String verificationCode) {
                           controller.goToSuccessSingeUpe();
-                          // showDialog(
-                          //     context: context,
-                          //     builder: (context) {
-                          //       return AlertDialog(
-                          //         title: const Text("Verification Code"),
-                          //         content:
-                          //             Text('Code entered is $verificationCode'),
-                          //       );
-                          // });
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: const Text("Verification Code"),
+                                  content:
+                                      Text('Code entered is $verificationCode'),
+                                );
+                              });
                         }, // end onSubmit
                       ),
                     )

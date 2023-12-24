@@ -10,7 +10,7 @@ class CustomCatagoryHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeContollerImp>(
+    return GetBuilder<HomeControllerImp>(
       builder: (controller) => Container(
           height: 53,
           child: ListView.separated(
@@ -40,8 +40,8 @@ class CatagoryHeader2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // bool change = false;
-    Get.put(HomeContollerImp());
-    return GetBuilder<HomeContollerImp>(
+    Get.put(HomeControllerImp());
+    return GetBuilder<HomeControllerImp>(
       builder: (controller) => AnimatedContainer(
         duration: const Duration(microseconds: 400),
         width: data.active == '0' ? 56 : 140,

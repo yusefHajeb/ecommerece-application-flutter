@@ -1,4 +1,3 @@
-import 'package:ecommerece/core/constant/data_cash.dart';
 import 'package:ecommerece/core/constant/imageassets.dart';
 import 'package:ecommerece/core/constant/routing.dart';
 import 'package:ecommerece/core/services/services.dart';
@@ -6,7 +5,6 @@ import 'package:ecommerece/data/models/categoresmodels.dart';
 import 'package:ecommerece/data/models/items_model.dart';
 import 'package:ecommerece/view/screen/cart_screen.dart';
 import 'package:ecommerece/view/screen/home.dart';
-import 'package:ecommerece/view/screen/productsdetails.dart';
 import 'package:ecommerece/view/screen/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,10 +18,10 @@ abstract class HomeContrller extends GetxController {
   goToProduct(List dataItems, int selectedProduct);
 }
 
-class HomeContollerImp extends HomeContrller {
+class HomeControllerImp extends HomeContrller {
   late PageController pageController;
   bool folded = true;
-  int _currentPage = 0;
+  final int _currentPage = 0;
   int currentIndex = 0;
   bool isPressed = true; // pressed lick
   bool isPressed2 = true;
@@ -57,9 +55,9 @@ class HomeContollerImp extends HomeContrller {
   }
 
   List<Widget> listWidget = [
-    SingleChildScrollView(
+    const SingleChildScrollView(
       child: Column(
-        children: const [
+        children: [
           Material(
             type: MaterialType.canvas,
             child: Home(),
@@ -67,14 +65,14 @@ class HomeContollerImp extends HomeContrller {
         ],
       ),
     ),
-    Column(
+    const Column(
       children: [Material(child: Text("Faveret"))],
     ),
-    Column(
+    const Column(
       children: [Material(child: Text("Persson"))],
     ),
-    CartScreen(),
-    SettingSCreen(),
+    const CartScreen(),
+    const SettingSCreen(),
   ];
   List<CategoriesModel> listCat = [
     CategoriesModel(
@@ -105,12 +103,12 @@ class HomeContollerImp extends HomeContrller {
   List<ItemsModel> itemsIndex = [];
   setIdToShowItems(String id) {
     itemsIndex.clear();
-    if (id == "0")
+    if (id == "0") {
       itemsIndex.addAll(dataItems);
-    else {
-      dataItems.forEach((element) {
+    } else {
+      for (var element in dataItems) {
         if (element.categoriesId! == id) itemsIndex.add(element);
-      });
+      }
     }
     update();
   }
@@ -186,11 +184,11 @@ class HomeContollerImp extends HomeContrller {
   int indexCatogory = 0;
 
   stateCategoryActive(int index) {
-    listCat.forEach((element) {
+    for (var element in listCat) {
       element.categoriesId != index
           ? element.active = '0'
           : element.active = '1';
-    });
+    }
     update();
   }
 
@@ -217,7 +215,7 @@ class HomeContollerImp extends HomeContrller {
   @override
   goToProduct(dataItems, selectedProduct) {
     // Get.toNamed(AppRout.productDetalis);
-    Get.toNamed(AppRout.productDetalis,
+    Get.toNamed(AppRout.productDetails,
         arguments: {"selected": selectedProduct});
   }
 

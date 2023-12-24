@@ -10,12 +10,10 @@ class SuccessSingUP extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> _fromKey = GlobalKey<FormState>();
-    SuccesSingeUpControllerImp controller =
-        Get.put(SuccesSingeUpControllerImp());
+    SuccessSingeUpControllerImp controller =
+        Get.put(SuccessSingeUpControllerImp());
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      // appBar: AppBar(),
       body: Stack(
         children: [
           Container(
@@ -50,7 +48,7 @@ class SuccessSingUP extends StatelessWidget {
                     const Spacer(),
                     CustomButtonOK(
                       text: "Go To Login",
-                      submet: () {
+                      submit: () {
                         controller.goToLogin();
                       },
                     ),

@@ -8,9 +8,12 @@ Future<bool> alertExitApp() {
       title: "تنبية",
       middleText: 'هل تريد الخروج من التطبيق !',
       actions: [
-        ElevatedButton(onPressed: exit(0), child: Text("Confirm")),
-        ElevatedButton(onPressed: exit(1), child: const Text("cancel")),
+        ElevatedButton(
+          child: Text("Confirm"),
+          onPressed: exit(0),
+        ),
       ]);
 
+  // ignore: dead_code
   return Future.value(false);
 }

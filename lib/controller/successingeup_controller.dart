@@ -5,7 +5,7 @@ abstract class SuccesSingeUpController extends GetxController {
   goToLogin();
 }
 
-class SuccesSingeUpControllerImp extends SuccesSingeUpController {
+class SuccessSingeUpControllerImp extends SuccesSingeUpController {
   @override
   goToLogin() {
     Get.offNamed(AppRout.homeScreen);

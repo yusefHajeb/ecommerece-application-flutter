@@ -20,9 +20,6 @@ class ItemsScreen extends StatelessWidget {
           builder: (controller) => Container(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
               child: Column(
-                // shrinkWrap: true,
-                // scrollDirection: Axis.vertical,
-                // shrinkWrap: true,
                 children: [
                   Container(
                     margin: EdgeInsets.only(bottom: 30),
@@ -30,15 +27,15 @@ class ItemsScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         const CustomInpoutSearch(title: "Find Product"),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         CustomButtonNotification(onPressedIcon: () {})
                       ],
                     ),
                   ),
-                  CustomCatagoryItems(),
-                  SizedBox(
+                  const CustomCatagoryItems(),
+                  const SizedBox(
                     height: 20,
                   ),
                   GridView.builder(
@@ -48,7 +45,6 @@ class ItemsScreen extends StatelessWidget {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            // mainAxisExtent: 100,
                             childAspectRatio: 0.7,
                             crossAxisSpacing: 18,
                             mainAxisSpacing: 10),

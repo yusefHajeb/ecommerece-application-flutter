@@ -4,7 +4,7 @@ class Bouncing extends StatefulWidget {
   final Widget child;
   VoidCallback? onPress;
 
-  Bouncing({required this.child, this.onPress}) : assert(child != null);
+  Bouncing({super.key, required this.child, this.onPress});
 
   @override
   _BouncingState createState() => _BouncingState();
@@ -20,7 +20,7 @@ class _BouncingState extends State<Bouncing>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 100),
+      duration: const Duration(milliseconds: 100),
       lowerBound: 0.0,
       upperBound: 0.1,
     );

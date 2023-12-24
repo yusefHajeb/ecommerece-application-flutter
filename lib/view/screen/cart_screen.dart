@@ -22,7 +22,7 @@ class CartScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Expanded(
-                child: Image.asset(ImageAssets.onBordingOne),
+                child: Image.asset(ImageAssets.onBoardingOne),
                 flex: 4,
               ),
 

@@ -1,6 +1,5 @@
 import 'package:ecommerece/controller/onboarding_contrller.dart';
-import 'package:ecommerece/core/constant/color.dart';
-import 'package:ecommerece/data/datasorce/static/static.dart';
+import 'package:ecommerece/data/data_source/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
@@ -14,18 +13,18 @@ class CustomSlider extends GetView<OnBoardingControllerImp> {
       onPageChanged: (val) {
         controller.onPageChanged(val);
       },
-      itemCount: onbordingList.length,
+      itemCount: onboardingList.length,
       itemBuilder: (context, i) => Column(children: [
         Container(
           margin: const EdgeInsets.only(top: 30),
           child: Text(
-            onbordingList[i].title!,
-            style: Theme.of(context).textTheme.bodyText1,
+            onboardingList[i].title!,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         const SizedBox(height: 40),
         Image.asset(
-          onbordingList[i].image!,
+          onboardingList[i].image!,
           fit: BoxFit.fill,
           width: 200,
           height: 250,
@@ -35,8 +34,8 @@ class CustomSlider extends GetView<OnBoardingControllerImp> {
           width: double.infinity,
           alignment: Alignment.topCenter,
           child: Text(
-            onbordingList[i].paragraph!,
-            style: Theme.of(context).textTheme.headline1,
+            onboardingList[i].paragraph!,
+            style: Theme.of(context).textTheme.displayLarge,
             textAlign: TextAlign.center,
           ),
         ),

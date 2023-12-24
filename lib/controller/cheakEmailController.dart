@@ -7,7 +7,6 @@ abstract class CheakEmailController extends GetxController {
 }
 
 class CheakEmailControllerImp extends CheakEmailController {
-  @override
   late TextEditingController email;
 
   @override
@@ -24,7 +23,7 @@ class CheakEmailControllerImp extends CheakEmailController {
 
   @override
   goToVerfiyCodeSingeUp() {
-    Get.offNamed(AppRout.verfiyC0deSingeUp);
+    Get.offNamed(AppRout.verifyCodeSingeUp);
     // Get.offNamed(AppRout.resetPassword);
   }
 }

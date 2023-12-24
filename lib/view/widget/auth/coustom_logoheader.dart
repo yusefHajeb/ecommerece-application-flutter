@@ -1,11 +1,9 @@
-import 'dart:math';
-
 import 'package:ecommerece/core/constant/color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class CustomHeaderNameShop extends StatelessWidget {
+  const CustomHeaderNameShop({super.key});
+
   // const CustomHeaderNameShop({super.key});
 
   @override
@@ -26,7 +24,8 @@ class CustomHeaderNameShop extends StatelessWidget {
         child: Text(
           "YAH Shope",
           textAlign: TextAlign.left,
-          style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 40),
+          style:
+              Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 40),
         ));
   }
 }

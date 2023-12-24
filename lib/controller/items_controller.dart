@@ -11,26 +11,26 @@ abstract class ItemsController extends GetxController {
 class ItemsControllerItm extends ItemsController {
   List<ItemsModel> Items = [
     ItemsModel(
-        itemsImage: ImageAssets.onBordingThree,
+        itemsImage: ImageAssets.onBoardingThree,
         itemsName: "shorts",
         itemPrice: '1500',
         categoriesId: "1",
         categoriesName: 'man'),
     ItemsModel(
-      itemsImage: ImageAssets.onBordingOne,
+      itemsImage: ImageAssets.onBoardingOne,
       itemsName: "ti shirt",
       itemPrice: '200',
       categoriesId: "2",
       categoriesName: 'woman',
     ),
     ItemsModel(
-        itemsImage: ImageAssets.onBordingTow,
+        itemsImage: ImageAssets.onBoardingTow,
         itemsName: "shose",
         itemPrice: '1500',
         categoriesId: "3",
         categoriesName: 'kids'),
     ItemsModel(
-        itemsImage: ImageAssets.onBordingThree,
+        itemsImage: ImageAssets.onBoardingThree,
         itemsName: "sandals",
         itemPrice: '1300',
         categoriesId: "4",

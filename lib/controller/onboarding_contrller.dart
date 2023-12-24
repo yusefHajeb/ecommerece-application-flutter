@@ -1,6 +1,7 @@
+import 'package:ecommerece/core/constant/app_constants.dart';
 import 'package:ecommerece/core/constant/routing.dart';
 import 'package:ecommerece/core/services/services.dart';
-import 'package:ecommerece/data/datasorce/static/static.dart';
+import 'package:ecommerece/data/data_source/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,12 +18,12 @@ class OnBoardingControllerImp extends OnBoardingController {
   next() {
     currentPage++;
     MyServices myServices = Get.find();
-    if (currentPage > onbordingList.length - 1) {
-      Get.offAllNamed(AppRout.authing);
-      myServices.sharedPreferences!.setBool('middleware', true);
+    if (currentPage > onboardingList.length - 1) {
+      Get.offAllNamed(AppRout.authenticationScreen);
+      myServices.sharedPreferences!.setBool(AppConstants.middleware, true);
     } else {
       pageController.animateToPage(currentPage,
-          duration: const Duration(milliseconds: 800), curve: Curves.easeInOut);
+          duration: const Duration(milliseconds: 450), curve: Curves.easeInOut);
     }
   }
 

@@ -78,14 +78,10 @@
 
 import 'dart:convert';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerece/controller/test_controller.dart';
-import 'package:ecommerece/core/class/curd.dart';
 import 'package:ecommerece/core/class/staterequest.dart';
 import 'package:ecommerece/core/constant/link_api.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -121,7 +117,7 @@ class TestView extends StatelessWidget {
     Get.put(TestController());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hello "),
+        title: const Text("Hello "),
       ),
       body: GetBuilder<TestController>(builder: (controller) {
         return controller.statusRequest == StatusRequest.loading

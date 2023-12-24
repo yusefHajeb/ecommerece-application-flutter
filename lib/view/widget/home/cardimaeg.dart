@@ -1,12 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class CustomCardImage extends StatelessWidget {
   String urlImage;
   Size size;
-  CustomCardImage(this.urlImage, this.size);
+  CustomCardImage(this.urlImage, this.size, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,7 @@ class CustomCardImage extends StatelessWidget {
               borderRadius: BorderRadius.circular(30),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
               child: InteractiveViewer(
                 clipBehavior: Clip.hardEdge,
                 child: Hero(

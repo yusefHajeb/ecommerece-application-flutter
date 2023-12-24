@@ -18,11 +18,11 @@ class CustomProductDetalesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ProductDetailesControllerImp());
+    Get.put(ProductDetailsControllerImp());
     return Scaffold(
-      body: GetBuilder<ProductDetailesControllerImp>(
+      body: GetBuilder<ProductDetailsControllerImp>(
         builder: (controller) => Container(
-            child: ProductDetalesScreen(
+            child: ProductDetailsScreen(
           data: controller.dataDetales[controller.selected],
           selected: controller.selected,
         )),
@@ -31,19 +31,16 @@ class CustomProductDetalesScreen extends StatelessWidget {
   }
 }
 
-class ProductDetalesScreen extends StatelessWidget {
+// ignore: must_be_immutable
+class ProductDetailsScreen extends StatelessWidget {
   ItemsModel data;
   int selected;
-  ProductDetalesScreen({required this.data, required this.selected, super.key});
+  ProductDetailsScreen({required this.data, required this.selected, super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Get.put(ProductDetailesControllerImp());
-    double heightScreen = MediaQuery.of(context).size.height;
-    int indexx = 0;
-    // Image x = ImageAssets.get_image[3];
-    ProductDetailesControllerImp controller =
-        Get.put(ProductDetailesControllerImp());
+    ProductDetailsControllerImp controller =
+        Get.put(ProductDetailsControllerImp());
     double widthScreen = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -67,7 +64,7 @@ class ProductDetalesScreen extends StatelessWidget {
                       data.itemsName!,
                       style: Theme.of(context)
                           .textTheme
-                          .headline2!
+                          .displayMedium!
                           .copyWith(fontSize: 24),
                     ),
                     const SizedBox(
@@ -105,7 +102,7 @@ class ProductDetalesScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    Container(
+                    SizedBox(
                       height: 70,
                       child: ListView.builder(
                           itemCount: 4,
@@ -115,7 +112,7 @@ class ProductDetalesScreen extends StatelessWidget {
                                 padding: EdgeInsets.only(left: i == 0 ? 0 : 14),
                                 child: GestureDetector(
                                   onTap: () {
-                                    controller.changeIndexx(i);
+                                    controller.changeIndex(i);
                                   },
                                   child: Container(
                                     width: 70,
@@ -123,7 +120,7 @@ class ProductDetalesScreen extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       border: Border.all(
                                           width: 1.4,
-                                          color: controller.indexx == i
+                                          color: controller.index == i
                                               ? AppColor.secandryColor
                                               : AppColor.backgroundScreen),
                                       borderRadius: BorderRadius.circular(10),
@@ -142,26 +139,26 @@ class ProductDetalesScreen extends StatelessWidget {
                     ),
                     Text(
                       "Select Size ",
-                      style: Theme.of(context).textTheme.headline2,
+                      style: Theme.of(context).textTheme.displayMedium,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     CustomSizeProducts(controller: controller),
-                    SizedBox(height: 20),
-                    Text(
+                    const SizedBox(height: 20),
+                    const Text(
                       "Explain",
                       style: TextStyle(
                           fontSize: 18,
                           color: AppColor.backgroundScreen,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
                       data.itemsDec!,
-                      style: Theme.of(context).textTheme.headline4,
+                      style: Theme.of(context).textTheme.headlineMedium,
                     )
                   ],
                 )),

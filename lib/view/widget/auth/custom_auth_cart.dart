@@ -1,18 +1,16 @@
-import 'package:ecommerece/controller/authinticationscreen_controller.dart';
-import 'package:ecommerece/controller/login_controller.dart';
+import 'package:ecommerece/controller/authentication_controller.dart';
 import 'package:ecommerece/core/constant/color.dart';
 import 'package:ecommerece/core/functions/cheackinternet.dart';
 import 'package:ecommerece/core/functions/validinpout.dart';
 import 'package:ecommerece/view/widget/auth/custom_button_matierial.dart';
-import 'package:ecommerece/view/widget/auth/custom_text_confirm.dart';
 import 'package:ecommerece/view/widget/auth/custom_text_file.dart';
-import 'package:ecommerece/view/widget/auth/custom_text_password.dart';
-import 'package:ecommerece/view/widget/auth/custom_text_phone.dart';
 import 'package:ecommerece/view/widget/auth/custom_username.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AuthCart extends StatefulWidget {
+  const AuthCart({super.key});
+
   // const AuthCart({super.key});
 
   @override
@@ -29,12 +27,12 @@ class _AuthCartState extends State<AuthCart>
   late Animation<Offset> _slideAnimatio;
   late Animation<double> _opacityControler;
 
-  Map<String, String> _utheMap = {
+  final Map<String, String> _utheMap = {
     'password': ' ',
     'email': '',
   };
   bool _isLoding = false;
-  bool _showButton = false;
+  final bool _showButton = false;
   // final _passwordContoler = TextEditingController();
   // final _emailControler = TextEditingController()..text = '';
 
@@ -51,10 +49,11 @@ class _AuthCartState extends State<AuthCart>
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(microseconds: 300),
+      duration: const Duration(microseconds: 300),
     );
     _slideAnimatio =
-        Tween<Offset>(begin: Offset(0, -0.15), end: Offset(0, 0)).animate(
+        Tween<Offset>(begin: const Offset(0, -0.15), end: const Offset(0, 0))
+            .animate(
       CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn),
     );
     _opacityControler = Tween<double>(begin: 0.0, end: 1.0)
@@ -122,14 +121,11 @@ class _AuthCartState extends State<AuthCart>
     }
   }
 
-  FocusNode _focusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
     // Get.lazyPut(() => AuthenticationControllerImp());
     AuthenticationControllerImp controller =
         Get.put(AuthenticationControllerImp());
-    // AuthenticationControllerImp controller =
-    // Get.put(AuthenticationControllerImp());
     final size = MediaQuery.of(context).size;
     return Card(
       shape: RoundedRectangleBorder(
@@ -144,7 +140,7 @@ class _AuthCartState extends State<AuthCart>
         constraints: BoxConstraints(
             minHeight: _AutheMode == AuthMode.singleUp ? 320 : 260),
         width: size.width * 0.75,
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Form(
             key: controller.formState,
             child: SingleChildScrollView(
@@ -152,7 +148,7 @@ class _AuthCartState extends State<AuthCart>
                 children: [
                   CustomTextFormEmail(
                     map: _utheMap,
-                    controller: controller.emailControler,
+                    controller: controller.emailController,
                     valid: (val) {
                       return validInput(val!, 6, 100, 'email');
                     },
@@ -160,9 +156,9 @@ class _AuthCartState extends State<AuthCart>
                   GetBuilder<AuthenticationControllerImp>(
                     builder: (contriller) => CustomTextFromFiles(
                         labeltext: 'Password',
-                        iconData: Icon(Icons.lock_outline_rounded),
+                        iconData: const Icon(Icons.lock_outline_rounded),
                         varEnable: true,
-                        controller: controller.passwordContoler,
+                        controller: controller.passwordController,
                         valid: (val) {
                           return validInput(val!, 8, 30, 'password');
                         },
@@ -190,7 +186,7 @@ class _AuthCartState extends State<AuthCart>
                                 iconData: const Icon(
                                     Icons.broadcast_on_personal_outlined),
                                 varEnable: _AutheMode != AuthMode.loding,
-                                controller: controller.usernameControler,
+                                controller: controller.usernameController,
                                 valid: (val) {
                                   return validInput(val!, 4, 9, 'username');
                                 },
@@ -200,7 +196,7 @@ class _AuthCartState extends State<AuthCart>
                                 iconData:
                                     const Icon(Icons.phone_iphone_outlined),
                                 varEnable: _AutheMode != AuthMode.loding,
-                                controller: controller.phonControler,
+                                controller: controller.phonController,
                                 valid: (val) {
                                   return validInput(val!, 4, 9, 'phone');
                                 },
@@ -211,7 +207,7 @@ class _AuthCartState extends State<AuthCart>
                                     iconData:
                                         const Icon(Icons.confirmation_number),
                                     varEnable: _AutheMode != AuthMode.loding,
-                                    controller: controller.confirmControler,
+                                    controller: controller.confirmController,
                                     valid: (val) {
                                       return validInput(val!, 8, 30, '');
                                     },
@@ -238,7 +234,7 @@ class _AuthCartState extends State<AuthCart>
                     onPressed: () {
                       controller.goToForgetPassword();
                     },
-                    child: Text(
+                    child: const Text(
                       "Forget Passowrd",
                       style: TextStyle(
                         color: AppColor.gray,
@@ -254,7 +250,7 @@ class _AuthCartState extends State<AuthCart>
                                   text: _AutheMode == AuthMode.loding
                                       ? "Singe In"
                                       : "Singe Up",
-                                  submet: () {
+                                  submit: () {
                                     return _AutheMode == AuthMode.loding
                                         ? controller.goToSingIn()
                                         : controller.goToSingUp();
@@ -266,7 +262,7 @@ class _AuthCartState extends State<AuthCart>
                                 onPressed: _switchAuthMode,
                                 child: Text(
                                   "${_AutheMode == AuthMode.loding ? "Singe Up" : "Login"} Instead",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: AppColor.backgroundScreen,
                                   ),
                                 ),
@@ -285,12 +281,12 @@ class _AuthCartState extends State<AuthCart>
     showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
-              title: Text('An Error Occurred!'),
+              title: const Text('An Error Occurred!'),
               content: Text(errorMessage),
               actions: [
                 FloatingActionButton(
                   onPressed: () => Navigator.of(ctx).pop(),
-                  child: Text("okay!"),
+                  child: const Text("okay!"),
                 )
               ],
             ));

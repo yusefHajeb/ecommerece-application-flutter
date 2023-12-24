@@ -44,18 +44,18 @@ class ResetPassword extends StatelessWidget {
                           "New  Password".tr,
                           style: Theme.of(context)
                               .textTheme
-                              .headline1!
+                              .displayLarge!
                               .copyWith(fontSize: 30),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(
                           "Enter Your new Password ".tr,
-                          style: Theme.of(context).textTheme.headline3,
+                          style: Theme.of(context).textTheme.displaySmall,
                           textAlign: TextAlign.center,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                       ],
@@ -74,9 +74,9 @@ class ResetPassword extends StatelessWidget {
                         duration: const Duration(milliseconds: 300),
                         curve: Curves.bounceIn,
                         height: 100,
-                        constraints: BoxConstraints(minHeight: 260),
+                        constraints: const BoxConstraints(minHeight: 260),
                         width: size.width * 0.75,
-                        padding: EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(16),
                         child: Form(
                           key: controller.formSate,
                           child: SingleChildScrollView(
@@ -84,11 +84,13 @@ class ResetPassword extends StatelessWidget {
                               children: [
                                 CustomTextFromFiles(
                                   labeltext: ' Password',
-                                  iconData: Icon(Icons.lock_outline_rounded),
+                                  iconData:
+                                      const Icon(Icons.lock_outline_rounded),
                                   varEnable: true,
                                   controller: controller.password,
                                   valid: (value) {
                                     validInput(value!, 5, 30, 'password');
+                                    return null;
                                   },
                                 ),
                                 CustomTextFromFiles(
@@ -99,6 +101,7 @@ class ResetPassword extends StatelessWidget {
                                   controller: controller.rePassword,
                                   valid: (value) {
                                     validInput(value!, 5, 30, 'password');
+                                    return null;
                                   },
                                 ),
                                 const SizedBox(
@@ -106,8 +109,8 @@ class ResetPassword extends StatelessWidget {
                                 ),
                                 CustomButtonOK(
                                   text: "Save",
-                                  submet: () {
-                                    controller.goToSucsses();
+                                  submit: () {
+                                    controller.goToSusses();
                                   },
                                 ),
                               ],

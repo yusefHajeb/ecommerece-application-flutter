@@ -1,5 +1,4 @@
 import 'package:ecommerece/controller/home_controller.dart';
-import 'package:ecommerece/controller/items_controller.dart';
 // import 'package:ecommerece/core/class/curd.dart';
 import 'package:ecommerece/core/constant/color.dart';
 import 'package:ecommerece/view/widget/bouncingbutton.dart';
@@ -21,16 +20,16 @@ class CustomCardItemHome extends StatelessWidget {
     }
 
     var size = MediaQuery.of(context).size;
-    Get.put(HomeContollerImp());
+    Get.put(HomeControllerImp());
 
-    return GetBuilder<HomeContollerImp>(
+    return GetBuilder<HomeControllerImp>(
       builder: (controller) => InkWell(
         onTap: () {
           controller.goToProduct(controller.dataItems, indexx);
         },
         child: Card(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -52,7 +51,10 @@ class CustomCardItemHome extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 5),
                       child: Text(
                         controller.itemsIndex[indexx].itemsName!,
-                        style: Theme.of(context).textTheme.headline4!.copyWith(
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium!
+                            .copyWith(
                               overflow: TextOverflow.ellipsis,
                               fontSize: 12,
                             ),

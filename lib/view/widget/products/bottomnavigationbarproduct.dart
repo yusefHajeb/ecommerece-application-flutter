@@ -7,13 +7,13 @@ import 'package:get/get.dart';
 
 import '../bouncingbutton.dart';
 
-class BottomNavigationBarBroduct extends GetView<ProductDetailesControllerImp> {
+class BottomNavigationBarBroduct extends GetView<ProductDetailsControllerImp> {
   const BottomNavigationBarBroduct({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ProductDetailesControllerImp);
-    return GetBuilder<ProductDetailesControllerImp>(
+    Get.put(ProductDetailsControllerImp);
+    return GetBuilder<ProductDetailsControllerImp>(
       builder: (controller) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
         child: Row(

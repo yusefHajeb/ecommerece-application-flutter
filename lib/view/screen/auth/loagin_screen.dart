@@ -13,8 +13,6 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController emailContrller;
-    final TextEditingController passwordlContrller;
     LoginControllerImp controller = Get.put(LoginControllerImp());
     return Scaffold(
       appBar: AppBar(
@@ -49,7 +47,7 @@ class Login extends StatelessWidget {
                       child: CustomTextFromFile(
                     hint: 'Enter Your Email',
                     label: "Email",
-                    myController: controller.emailControler,
+                    myController: controller.emailController,
                     sufixIcon: const Icon(Icons.email),
                     valid: (value) {
                       return validInput(value!, 5, 100, 'email');
@@ -63,7 +61,7 @@ class Login extends StatelessWidget {
                     },
                     hint: 'Enter Your Password',
                     label: "password",
-                    myController: controller.emailControler,
+                    myController: controller.emailController,
                     sufixIcon: Icon(Icons.lock_outlined),
                     // myController: passwordlContrller.text,
                   )),
