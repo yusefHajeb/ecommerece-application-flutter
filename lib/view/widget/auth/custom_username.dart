@@ -1,8 +1,7 @@
 import 'package:ecommerece/core/constant/color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
+// ignore: must_be_immutable
 class CustomTextFromFiles extends StatelessWidget {
   final bool varEnable;
 
@@ -34,10 +33,10 @@ class CustomTextFromFiles extends StatelessWidget {
           errorText: null,
           labelText: labeltext,
           prefixIcon: InkWell(
-            child: iconData,
             onTap: showPassword,
+            child: iconData,
           ),
-          labelStyle: Theme.of(context).textTheme.headline4,
+          labelStyle: Theme.of(context).textTheme.headlineMedium,
           focusColor: AppColor.backgroundScreen),
       keyboardType: TextInputType.emailAddress,
       validator: valid,

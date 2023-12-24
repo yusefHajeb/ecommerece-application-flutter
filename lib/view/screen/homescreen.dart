@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
     Get.put(HomeControllerImp());
 
     return Scaffold(
-        bottomNavigationBar: CustomButtomNavigationBar(),
+        bottomNavigationBar: CustomBottomNavigationBar(),
         body: SingleChildScrollView(
           child: GetBuilder<HomeControllerImp>(
             builder: (controller) =>

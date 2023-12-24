@@ -2,6 +2,7 @@ import 'package:ecommerece/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class CustomTextFromFile extends StatelessWidget {
   final String label;
   final String hint;

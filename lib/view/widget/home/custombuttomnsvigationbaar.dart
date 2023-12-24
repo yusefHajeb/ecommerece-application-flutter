@@ -5,12 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-class CustomButtomNavigationBar extends StatelessWidget {
-  // const CustomButtomNavigationBar({super.key});
-
+// ignore: must_be_immutable
+class CustomBottomNavigationBar extends StatelessWidget {
   var currentIndex = 0;
 
-  CustomButtomNavigationBar({super.key});
+  CustomBottomNavigationBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +34,6 @@ class CustomButtomNavigationBar extends StatelessWidget {
           child: ListView.builder(
             itemCount: 5,
             scrollDirection: Axis.horizontal,
-            // padding: EdgeInsets.symmetric(horizontal: screenWidth * .00124),
             itemBuilder: (context, index) => InkWell(
               onTap: () {
                 controller.changePage(index);

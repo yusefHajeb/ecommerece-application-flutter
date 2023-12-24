@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 // ignore: must_be_immutable
 class CustomButtonLike extends StatelessWidget {
-  @override
   bool isPressed = true;
   bool isPressed2 = true;
   bool isHighlighted = true;
@@ -19,11 +18,7 @@ class CustomButtonLike extends StatelessWidget {
         child: InkWell(
           highlightColor: Colors.transparent,
           splashColor: Colors.transparent,
-          onHighlightChanged: (value) {
-            // setState(() {
-            //   isHighlighted = !isHighlighted;
-            // });
-          },
+          onHighlightChanged: (value) {},
           onTap: () {
             controller.clickOnButtonlick();
           },

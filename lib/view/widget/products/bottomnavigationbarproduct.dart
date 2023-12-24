@@ -2,7 +2,6 @@ import 'package:ecommerece/controller/productdetailes_controller.dart';
 import 'package:ecommerece/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 
 import '../bouncingbutton.dart';

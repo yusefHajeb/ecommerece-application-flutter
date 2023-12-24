@@ -27,14 +27,11 @@ class _AuthCartState extends State<AuthCart>
   late Animation<Offset> _slideAnimatio;
   late Animation<double> _opacityControler;
 
-  final Map<String, String> _utheMap = {
+  final Map<String, String> _uthMap = {
     'password': ' ',
     'email': '',
   };
-  bool _isLoding = false;
-  final bool _showButton = false;
-  // final _passwordContoler = TextEditingController();
-  // final _emailControler = TextEditingController()..text = '';
+  bool _isLoading = false;
 
   var res;
   inialData() async {
@@ -70,7 +67,7 @@ class _AuthCartState extends State<AuthCart>
     FocusScope.of(context).unfocus();
     // _fromKey.currentState?.save();
     setState(() {
-      _isLoding = true;
+      _isLoading = true;
     });
     try {
       if (_AutheMode == AuthMode.loding) {
@@ -103,7 +100,7 @@ class _AuthCartState extends State<AuthCart>
     }
 
     setState(() {
-      _isLoding = false;
+      _isLoading = false;
     });
   }
 
@@ -147,7 +144,7 @@ class _AuthCartState extends State<AuthCart>
               child: Column(
                 children: [
                   CustomTextFormEmail(
-                    map: _utheMap,
+                    map: _uthMap,
                     controller: controller.emailController,
                     valid: (val) {
                       return validInput(val!, 6, 100, 'email');
@@ -241,7 +238,7 @@ class _AuthCartState extends State<AuthCart>
                       ),
                     ),
                   ),
-                  _isLoding
+                  _isLoading
                       ? const CircularProgressIndicator()
                       : SingleChildScrollView(
                           child: Column(
@@ -256,7 +253,6 @@ class _AuthCartState extends State<AuthCart>
                                         : controller.goToSingUp();
                                   }),
                               TextButton(
-                                // focusNode: _focusNode.parent,
                                 onHover: (value) =>
                                     const Color.fromARGB(255, 25, 18, 17),
                                 onPressed: _switchAuthMode,

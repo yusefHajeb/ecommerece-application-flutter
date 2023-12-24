@@ -1,9 +1,6 @@
-import 'package:ecommerece/controller/home_controller.dart';
 import 'package:ecommerece/controller/items_controller.dart';
-// import 'package:ecommerece/core/class/curd.dart';
 import 'package:ecommerece/core/constant/color.dart';
 import 'package:ecommerece/view/widget/bouncingbutton.dart';
-// import 'package:ecommerece/view/widget/home/custombuttonlike.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -30,7 +27,7 @@ class CustomCardItem extends StatelessWidget {
         },
         child: Card(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -52,7 +49,10 @@ class CustomCardItem extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 5),
                       child: Text(
                         controller.itemsIndex[indexx].itemsName!,
-                        style: Theme.of(context).textTheme.headline4!.copyWith(
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium!
+                            .copyWith(
                               overflow: TextOverflow.ellipsis,
                               fontSize: 12,
                             ),

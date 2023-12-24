@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomCardImage extends StatelessWidget {
   String urlImage;
   Size size;
@@ -19,7 +20,6 @@ class CustomCardImage extends StatelessWidget {
               left: 20,
             ),
             decoration: BoxDecoration(
-              // color: Colors.black.withOpacity(0.04),
               borderRadius: BorderRadius.circular(30),
             ),
             child: ClipRRect(

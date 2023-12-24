@@ -1,19 +1,15 @@
-import 'package:ecommerece/controller/login_controller.dart';
 import 'package:ecommerece/core/constant/color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
-class CustomTextConfiremPassword extends StatelessWidget {
+// ignore: must_be_immutable
+class CustomTextConfirmPassword extends StatelessWidget {
   final bool varEnable;
   final bool showButton;
   final String valuePassword;
   final String? Function(String?) valid;
 
   TextEditingController? controller;
-  CustomTextConfiremPassword(
+  CustomTextConfirmPassword(
       {super.key,
       required this.varEnable,
       this.controller,
@@ -23,17 +19,15 @@ class CustomTextConfiremPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginControllerImp control = Get.put(LoginControllerImp());
     return TextFormField(
-      // focusNode: _focusNode,
       controller: controller,
       enabled: varEnable,
       obscureText: true,
       decoration: InputDecoration(
           errorText: null,
-          labelText: 'Confirem Password',
+          labelText: 'Confirm Password',
           prefixIcon: const Icon(Icons.person_outline),
-          labelStyle: Theme.of(context).textTheme.headline4,
+          labelStyle: Theme.of(context).textTheme.headlineMedium,
           focusColor: AppColor.backgroundScreen),
       keyboardType: TextInputType.emailAddress,
       validator: valid,
