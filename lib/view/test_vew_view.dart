@@ -99,7 +99,7 @@ import 'package:http/http.dart' as http;
 var client = http.Client();
 Future<List> fetchData() async {
   final response = await client.get(Uri.parse(
-    AppLinke.usersData,
+    AppLike.usersData,
   ));
   // .then((response) => print(response.body))
   // .catchError((error) => print(error));
@@ -111,6 +111,7 @@ Future<List> fetchData() async {
 }
 
 class TestView extends StatelessWidget {
+  static const routeName = 'TestView2';
   const TestView({super.key});
   @override
   Widget build(BuildContext context) {
@@ -120,56 +121,58 @@ class TestView extends StatelessWidget {
         title: const Text("Hello "),
       ),
       body: GetBuilder<TestController>(builder: (controller) {
-        return controller.statusRequest == StatusRequest.loading
-            ? const Center(child: CircularProgressIndicator())
-            : controller.statusRequest == StatusRequest.serverfailure
-                ? const Center(child: Text("Server faluer"))
-                : FutureBuilder(
-                    future: controller.getData(),
-                    builder: (BuildContext context, AsyncSnapshot snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(child: CircularProgressIndicator());
-                      } else if (snapshot.hasData) {
-                        return ListView.builder(
-                          itemCount: controller.data.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return ListTile(
-                              title: Text(controller.data[index]['users_name']),
-                              subtitle:
-                                  Text(controller.data[index]['users_email']),
-                            );
-                          },
-                        );
-                      } else {
-                        return const Center(child: Text('No data found.'));
-                      }
-                    },
+        return FutureBuilder(
+          future: controller.getData(),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (controller.statusRequest == StatusRequest.loading) {
+              print("loading");
+              return Center(child: const CircularProgressIndicator());
+            } else if (controller.statusRequest ==
+                StatusRequest.serverFailure) {
+              print("server");
+              return const Center(child: Text("Server failure"));
+            } else if (controller.statusRequest ==
+                StatusRequest.offlineFailure) {
+              print("offline");
+              return const Center(child: Text("Offline failure"));
+            } else {
+              return ListView.builder(
+                itemCount: controller.data.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListTile(
+                    title: Text(controller.data[index]['users_name']),
+                    subtitle: Text(controller.data[index]['users_email']),
                   );
+                },
+              );
+            }
+          },
+        );
+      }
+          // return FutureBuilder<List<dynamic>>(
+          //   future: controller.getData(),
+          //   builder: (contex, snapshot) {
+          //     print("------------------listmain ${controller.data}");
+          //     return ListView.builder(
+          //       itemCount: snapshot.data?.length,
+          //       itemBuilder: (BuildContext context, int index) {
+          //         final item = snapshot.data![index];
+          //         return Card(
+          //           child: ListTile(title: item['users_name']),
+          //         );
+          //       },
+          //     );
+          //   },
+          // );
 
-        // return FutureBuilder<List<dynamic>>(
-        //   future: controller.getData(),
-        //   builder: (contex, snapshot) {
-        //     print("------------------listmain ${controller.data}");
-        //     return ListView.builder(
-        //       itemCount: snapshot.data?.length,
-        //       itemBuilder: (BuildContext context, int index) {
-        //         final item = snapshot.data![index];
-        //         return Card(
-        //           child: ListTile(title: item['users_name']),
-        //         );
-        //       },
-        //     );
-        //   },
-        // );
-
-        // return ListView.builder(
-        //   itemBuilder: (context, index) {
-        //     return Text("${controller.data}");
-        //   },
-        //   itemCount: controller.data.length,
-        // );
-        // }
-      }),
+          // return ListView.builder(
+          //   itemBuilder: (context, index) {
+          //     return Text("${controller.data}");
+          //   },
+          //   itemCount: controller.data.length,
+          // );
+          // }
+          ),
     );
   }
 }

@@ -1,7 +1,7 @@
 class AppRout {
-  static const login = '/login';
   static const onBoarding = '/onboarding';
   static const authenticationScreen = '/auth_screen';
+  static const login = '/login';
   static const forgetPassword = '/forget_button';
   static const resetPassword = '/rest_password';
   static const verifyCode = '/verify_code';

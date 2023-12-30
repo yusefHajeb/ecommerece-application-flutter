@@ -14,6 +14,7 @@ class AuthSceen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       // appBar: AppBar(),
+      // ignore: deprecated_member_use
       body: WillPopScope(
         onWillPop: () {
           return alertExitApp();
@@ -44,10 +45,10 @@ class AuthSceen extends StatelessWidget {
                             "2".tr,
                             style: Theme.of(context)
                                 .textTheme
-                                .headline1!
+                                .displayLarge!
                                 .copyWith(fontSize: 30),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(
@@ -55,14 +56,15 @@ class AuthSceen extends StatelessWidget {
                             style: Theme.of(context).textTheme.headline3,
                             textAlign: TextAlign.center,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                         ],
                       ),
                     ),
                     // Flexible(child: CustomHeaderNameShop()),
-                    Flexible(flex: size.width > 600 ? 2 : 1, child: AuthCart())
+                    Flexible(
+                        flex: size.width > 600 ? 2 : 1, child: const AuthCart())
                   ],
                 ),
               ),

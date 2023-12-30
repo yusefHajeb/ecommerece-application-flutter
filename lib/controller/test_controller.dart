@@ -3,7 +3,6 @@ import 'dart:convert';
 // import 'package:dartz/dartz.dart';
 import 'package:ecommerece/core/class/curd.dart';
 import 'package:ecommerece/core/class/staterequest.dart';
-import 'package:ecommerece/core/functions/handlong.dart';
 import 'package:ecommerece/data/data_source/static/remote/test_data.dart';
 import 'package:ecommerece/core/constant/link_api.dart';
 // import 'package:ecommerece/view/test_vew_view.dart';
@@ -24,19 +23,27 @@ class TestController extends GetxController {
   getData() async {
     statusRequest = StatusRequest.loading;
     var response = await testData.getData();
+    response.fold((l) {
+      statusRequest = StatusRequest.failure;
+      update();
+    }, (r) {
+      statusRequest = StatusRequest.success;
+      data.addAll(r['data']);
+      update();
+    });
     // print("$response-----------------controller");
-    statusRequest = handlingData(response);
+    // statusRequest = handlingData(response);
 
-    if (statusRequest == StatusRequest.success) {
-      // data.addAll(json.decode(response.body));
-      data.addAll(response['data']);
-    }
+    // if (statusRequest == StatusRequest.success) {
+    //   // data.addAll(json.decode(response.body));
+    //   data.addAll(response['data']);
+    // }
     update();
   }
 
   getData2() async {
     var response = await http.post(
-      Uri.parse(AppLinke.usersData),
+      Uri.parse(AppLike.usersData),
       headers: {
         "Content-Type": "application/json",
       },

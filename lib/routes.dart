@@ -1,5 +1,6 @@
 import 'package:ecommerece/core/constant/routing.dart';
 import 'package:ecommerece/core/middleware/mymiddleware.dart';
+import 'package:ecommerece/view/screen/auth/authscreen.dart';
 import 'package:ecommerece/view/screen/auth/forgetpassword/forget_password_screen.dart';
 import 'package:ecommerece/view/screen/auth/forgetpassword/rest_password.dart';
 import 'package:ecommerece/view/screen/auth/success_singin.dart';
@@ -27,8 +28,7 @@ List<GetPage<dynamic>>? routes = [
       page: () => const ForgetPassword(),
       middlewares: [MyMiddleware()]),
 
-  GetPage(
-      name: AppRout.authenticationScreen, page: () => const ResetPassword()),
+  GetPage(name: AppRout.authenticationScreen, page: () => const AuthSceen()),
   GetPage(name: AppRout.onBoarding, page: () => const OnBordage()),
   GetPage(name: AppRout.forgetPassword, page: () => const ForgetPassword()),
   GetPage(name: AppRout.resetPassword, page: () => const ResetPassword()),

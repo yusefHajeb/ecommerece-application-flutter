@@ -50,14 +50,14 @@ class Login extends StatelessWidget {
                     myController: controller.emailController,
                     sufixIcon: const Icon(Icons.email),
                     valid: (value) {
-                      return validInput(value!, 5, 100, 'email');
+                      return validInput(value!, type: 'email');
                     },
                     // myController: passwordlContrller.text,
                   )),
                   Flexible(
                       child: CustomTextFromFile(
                     valid: (value) {
-                      return validInput(value!, 5, 30, 'password');
+                      return validInput(value!, type: 'password');
                     },
                     hint: 'Enter Your Password',
                     label: "password",

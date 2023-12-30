@@ -82,25 +82,26 @@ class ResetPassword extends StatelessWidget {
                           child: SingleChildScrollView(
                             child: Column(
                               children: [
-                                CustomTextFromFiles(
-                                  labeltext: ' Password',
+                                CustomTextFromField(
+                                  labelText: ' Password',
                                   iconData:
                                       const Icon(Icons.lock_outline_rounded),
                                   varEnable: true,
                                   controller: controller.password,
                                   valid: (value) {
-                                    validInput(value!, 5, 30, 'password');
+                                    validInput(value!, type: 'password');
                                     return null;
                                   },
                                 ),
-                                CustomTextFromFiles(
-                                  labeltext: 'Re Enter Password',
+                                CustomTextFromField(
+                                  labelText: 'Re Enter Password',
                                   iconData:
                                       const Icon(Icons.lock_outline_rounded),
                                   varEnable: true,
                                   controller: controller.rePassword,
                                   valid: (value) {
-                                    validInput(value!, 5, 30, 'password');
+                                    validInput(value!,
+                                        min: 5, max: 30, type: 'password');
                                     return null;
                                   },
                                 ),

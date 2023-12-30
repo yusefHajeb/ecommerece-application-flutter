@@ -1,15 +1,30 @@
+import 'dart:convert';
+
+import 'package:ecommerece/core/class/staterequest.dart';
 import 'package:ecommerece/core/constant/link_api.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/class/curd.dart';
 
-class TestData {
+class TestData extends GetxController {
   Curd crud = Curd();
-
+  String ecommirice = '';
   TestData(this.crud);
-
+  List? data;
+  late StatusRequest statusRequest;
+  Map<String, dynamic>? dataMap = {};
   getData() async {
-    var response = await crud.postData(AppLinke.usersData, {});
-    return response.fold((l) => l, (r) => r);
+    var response = await Curd.getData(AppLike.usersData);
+
+    return response.fold((failure) {
+      statusRequest = StatusRequest.failure;
+    }, (success) {
+      print("=========success ----- ${success['data']}");
+      data?.addAll(json.decode(success['data']));
+      statusRequest = StatusRequest.success;
+      print("===============================after update");
+      update();
+    });
   }
 
 //   getData() async {

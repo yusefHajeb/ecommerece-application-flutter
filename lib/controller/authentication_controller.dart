@@ -22,9 +22,8 @@ class AuthenticationControllerImp extends AuthenticationController {
   late GlobalKey<FormState> formState = GlobalKey<FormState>();
   late TextEditingController passwordController =
       TextEditingController(text: '');
-
+  Map<String, dynamic> data = {};
   late TextEditingController emailController = TextEditingController(text: '');
-  // late TextEditingController usernameControler;
   late TextEditingController phonController = TextEditingController(text: '');
   late TextEditingController confirmController =
       TextEditingController(text: '');
@@ -48,6 +47,7 @@ class AuthenticationControllerImp extends AuthenticationController {
 
   @override
   void onInit() {
+    formState = GlobalKey<FormState>();
     // FirebaseMessaging.instance.getToken().then((value) {
     //   String? token = value;
     //   print(token!);
@@ -69,20 +69,29 @@ class AuthenticationControllerImp extends AuthenticationController {
   goToSingUp() {
     var formData = formState.currentState;
     if (formData!.validate()) {
-      Get.offNamed(AppRout.verifyCodeSingeUp);
-    } else {}
+      Get.offNamed(AppRout.authenticationScreen);
+    } else {
+      print("formData!.validate()");
+      print(formData.validate());
+    }
     // Get.offNamed(AppRout.verfiyC0deSingeUp);
   }
 
   @override
-  goToSingIn() {
+  goToSingIn() async {
     var formData = formState.currentState;
+
+    Get.offNamed(AppRout.verifyCode);
     if ((emailController.text.isEmail && passwordController.text.length >= 5)) {
-      Get.offNamed(AppRout.verifyCode);
-      print(' valid');
+      data.putIfAbsent("email", () => emailController.text);
+      data.putIfAbsent("password", () => passwordController.text);
+      // var response = await Curd.postData(AppLike.usersData, data);
+      // response.fold((failure) {
+
+      // }, (success) {});
+      // Get.offNamed(AppRout.tes);
     } else {
-      formData!.validate();
-      print('not valid');
+      print(formData!.validate());
     }
   }
 

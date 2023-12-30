@@ -2,24 +2,24 @@ import 'package:ecommerece/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class CustomTextFromFiles extends StatelessWidget {
+class CustomTextFromField extends StatelessWidget {
   final bool varEnable;
-
-  final String labeltext;
+  final String labelText;
   final Icon iconData;
   TextEditingController? controller;
   final String? Function(String?) valid;
-  final bool? abscure;
+  final bool? obscure;
   final void Function()? showPassword;
-  CustomTextFromFiles(
-      {super.key,
-      this.abscure,
-      required this.varEnable,
-      this.controller,
-      required this.labeltext,
-      required this.iconData,
-      required this.valid,
-      this.showPassword});
+  CustomTextFromField({
+    super.key,
+    this.obscure,
+    required this.varEnable,
+    this.controller,
+    required this.labelText,
+    required this.iconData,
+    required this.valid,
+    this.showPassword,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +28,10 @@ class CustomTextFromFiles extends StatelessWidget {
       controller: controller,
       enabled: varEnable,
 
-      obscureText: abscure == null || abscure == false ? false : true,
+      obscureText: obscure == null || obscure == false ? false : true,
       decoration: InputDecoration(
           errorText: null,
-          labelText: labeltext,
+          labelText: labelText,
           prefixIcon: InkWell(
             onTap: showPassword,
             child: iconData,
@@ -41,9 +41,7 @@ class CustomTextFromFiles extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       validator: valid,
 
-      onSaved: (val) {
-        // _utheMap['email'] = val!;
-      },
+      onSaved: (val) {},
 
       buildCounter: (BuildContext context,
               {int? currentLength, int? maxLength, bool? isFocused}) =>

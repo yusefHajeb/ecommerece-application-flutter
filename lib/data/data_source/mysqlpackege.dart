@@ -1,7 +1,7 @@
 import 'package:mysql1/mysql1.dart';
 
 Future<void> getResults() async {
-  var seting = new ConnectionSettings(
+  var seting =  ConnectionSettings(
     host: "localhost",
     db: "ecommerce",
     // port: 3306,

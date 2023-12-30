@@ -89,8 +89,7 @@ class ForgetPassword extends StatelessWidget {
                                     CustomTextFormEmail(
                                       map: utheMap,
                                       valid: (val) {
-                                        return validInput(
-                                            val!, 5, 100, 'email');
+                                        return validInput(val!, type: 'email');
                                       },
                                     ),
                                     const SizedBox(
