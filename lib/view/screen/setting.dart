@@ -1,4 +1,5 @@
 import 'package:ecommerece/controller/setting_contoller.dart';
+import 'package:ecommerece/controller/theme_controller.dart';
 import 'package:ecommerece/core/constant/color.dart';
 import 'package:ecommerece/core/constant/imageassets.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,8 @@ class SettingSCreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SettingControllerImp controller = Get.put(SettingControllerImp());
+    final HomeController _controllerLanguage = Get.put(HomeController());
+
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       Stack(
         clipBehavior: Clip.none,
@@ -53,9 +56,48 @@ class SettingSCreen extends StatelessWidget {
                 leading: const Icon(Icons.notifications_active_outlined),
               ),
               ListTile(
-                onTap: () {},
-                title: const Text("Adress "),
-                leading: const Icon(Icons.location_on_outlined),
+                onTap: () {
+                  _controllerLanguage.switchTheme();
+                  _controllerLanguage.changeLanguage();
+
+                  Get.changeThemeMode(_controllerLanguage.currentTheme.value);
+                },
+                title: Obx(
+                  () => DropdownButton(
+                      hint: Text(_controllerLanguage.localData.value == "ar"
+                          ? "العربية"
+                          : "English"),
+                      items: ['العربية', 'English']
+                          .map((e) => DropdownMenuItem(
+                                value: e,
+                                child: Text(e),
+                              ))
+                          .toList(),
+                      onChanged: (value) {
+                        _controllerLanguage.localData.value =
+                            value == "العربية" ? "ar" : "en";
+                        // _controllerLanguage.switchTheme();
+                        _controllerLanguage.changeLanguage();
+
+                        // Get.changeThemeMode(
+                        //     _controllerLanguage.currentTheme.value);
+                      }),
+                ),
+                leading: const Icon(Icons.language_outlined),
+              ),
+              Obx(
+                () => ListTile(
+                  onTap: () {
+                    _controllerLanguage.switchTheme();
+                    _controllerLanguage.changeThemeData();
+                  },
+                  title: Text(
+                      "${_controllerLanguage.currentTheme.value == ThemeMode.dark ? "الوضع الليلي" : "الوضع النهاري"}"),
+                  leading: Icon(
+                      _controllerLanguage.currentTheme.value == ThemeMode.dark
+                          ? Icons.mode_night_outlined
+                          : Icons.light_mode_outlined),
+                ),
               ),
               ListTile(
                 onTap: () {},

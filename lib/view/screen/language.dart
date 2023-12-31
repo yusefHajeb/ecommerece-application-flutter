@@ -7,7 +7,7 @@ import 'package:ecommerece/view/widget/launguageidget/custombutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Launguage extends GetView<LocaleContoller> {
+class Launguage extends GetView<LocaleController> {
   const Launguage({super.key});
 
   @override

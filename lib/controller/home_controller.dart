@@ -5,6 +5,7 @@ import 'package:ecommerece/data/models/categoresmodels.dart';
 import 'package:ecommerece/data/models/items_model.dart';
 import 'package:ecommerece/view/screen/cart_screen.dart';
 import 'package:ecommerece/view/screen/home.dart';
+import 'package:ecommerece/view/screen/home_theme.dart';
 import 'package:ecommerece/view/screen/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -65,9 +66,7 @@ class HomeControllerImp extends HomeContrller {
         ],
       ),
     ),
-    const Column(
-      children: [Material(child: Text("Faveret"))],
-    ),
+    HomeTheme(),
     const Column(
       children: [Material(child: Text("Persson"))],
     ),

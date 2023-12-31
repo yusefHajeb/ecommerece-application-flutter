@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerece/controller/home_controller.dart';
+import 'package:ecommerece/core/constant/color.dart';
 import 'package:ecommerece/core/constant/imageassets.dart';
 import 'package:ecommerece/view/widget/home/custombuttonnotification.dart';
 import 'package:ecommerece/view/widget/home/customcard_items.dart';
@@ -41,7 +42,12 @@ class Home extends StatelessWidget {
                 const SizedBox(
                   width: 5,
                 ),
-                CustomButtonNotification(onPressedIcon: () {})
+                CustomButtonNotification(onPressedIcon: () {}),
+                Container(
+                  width: 30,
+                  height: 30,
+                  color: AppColor.backgroundScreen,
+                )
               ],
             ),
           ),
