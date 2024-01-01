@@ -1,6 +1,5 @@
 import 'package:ecommerece/core/constant/color.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 class AppTextStyle extends TextStyle {
   static const displaySmall = TextStyle(

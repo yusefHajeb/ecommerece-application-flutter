@@ -30,8 +30,6 @@ class AppTheme2 {
       fontFamily: 'Lato',
     );
     return themeEnglish.copyWith(
-      iconTheme: IconThemeData(color: Colors.blue),
-
       primaryColor: AppColor.secandryColor,
       secondaryHeaderColor: AppColor.secandryColor,
       textTheme: TextTheme(
@@ -115,8 +113,6 @@ class AppTheme2 {
       ),
     );
     return themeEnglish.copyWith(
-      iconTheme: IconThemeData(color: Colors.yellow),
-
       primaryColor: AppColor.secandryColor,
       secondaryHeaderColor: AppColor.secandryColor,
       textTheme: TextTheme(
@@ -168,8 +164,6 @@ class AppTheme2 {
       fontFamily: 'Lato',
     );
     return themeEnglish.copyWith(
-      iconTheme: IconThemeData(color: Colors.green),
-
       primaryColor: AppColor.secandryColor,
       secondaryHeaderColor: AppColor.secandryColor,
       textTheme: TextTheme(
@@ -219,23 +213,6 @@ class AppTheme2 {
     onBackground: Colors.white,
     surface: const Color(0xff121212),
     onSurface: Colors.white,
-  );
-
-  static final _darkTextTheme = AppTextThemeExtension(
-    bodyMedium:
-        AppTextStyle.bodyMedium.copyWith(color: _lightAppColors.onBackground),
-    displayMedium: AppTextStyle.displayMedium.copyWith(color: Colors.white),
-    displayLarge: AppTextStyle.displayMedium.copyWith(color: Colors.white),
-    displaySmall: AppTextStyle.displaySmall.copyWith(color: Colors.white),
-    headlineMedium: AppTextStyle.headlineMedium,
-    headlineLarge: AppTextStyle.headlineLarge.copyWith(color: Colors.white),
-    headlineSmall: AppTextStyle.headlineSmall.copyWith(color: Colors.white),
-    titleLarge: AppTextStyle.titleLarge.copyWith(color: Colors.white),
-    titleMedium: AppTextStyle.titleMedium.copyWith(color: Colors.white),
-    titleSmall: AppTextStyle.titleSmall.copyWith(color: Colors.white),
-    bodyLarge: AppTextStyle.bodyLarge.copyWith(color: Colors.white),
-    bodySmall: AppTextStyle.bodySmall.copyWith(color: Colors.white),
-    labelLarge: AppTextStyle.labelLarge.copyWith(color: Colors.white),
   );
 }
 

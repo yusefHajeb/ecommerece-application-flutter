@@ -31,39 +31,6 @@ class HomeController extends GetxController {
         .setString(AppConstants.themeMode, "${currentTheme.value}");
   }
 
-  void changeLanguage() {
-    String? lang = myServices.sharedPreferences!.getString('lange');
-
-    if (lang == "en") {
-      if (currentTheme.value == "ThemeMode.dark") {
-        currentThemeData.value = AppTheme2.darkArabic;
-      } else {
-        currentThemeData.value = AppTheme2.lightArabic;
-      }
-
-      language("ar");
-
-      // currentThemeData.value = currentThemeData.value == AppTheme2.darkArabic
-      //     ? AppTheme2.lightArabic
-      //     : AppTheme2.darkArabic;
-    } else {
-      if (currentTheme.value == "ThemeMode.dark") {
-        currentThemeData.value = AppTheme2.darkEnglish;
-      } else {
-        currentThemeData.value = AppTheme2.lightEnglish;
-      }
-      language("en");
-
-      // currentThemeData.value = currentThemeData.value == AppTheme2.darkEnglish
-      //     ? AppTheme2.lightEnglish
-      //     : AppTheme2.darkEnglish;
-    }
-    Get.changeTheme(currentThemeData.value);
-    // currentTheme.value = currentTheme.value == ThemeMode.light
-    //     ? ThemeMode.dark
-    //     : ThemeMode.light;
-  }
-
   void changeThemeData() {
     String? lang = myServices.sharedPreferences!.getString('lange');
     String? themeMode =
@@ -73,10 +40,10 @@ class HomeController extends GetxController {
     if (themeMode == "ThemeMode.dark") {
       if (lang == "en") {
         // language('ar');
-        currentThemeData.value = AppTheme2.darkEnglish;
+        currentThemeData.value = AppTheme2.lightEnglish;
       } else {
         // language("en");
-        currentThemeData.value = AppTheme2.darkArabic;
+        currentThemeData.value = AppTheme2.lightArabic;
       }
       myServices.sharedPreferences
           ?.setString(AppConstants.themeMode, "ThemeMode.light");
@@ -84,20 +51,54 @@ class HomeController extends GetxController {
       Get.changeThemeMode(ThemeMode.light);
     } else {
       if (lang == "en") {
-        currentThemeData.value = AppTheme2.lightEnglish;
+        currentThemeData.value = AppTheme2.darkEnglish;
       } else {
-        currentThemeData.value = AppTheme2.lightArabic;
+        currentThemeData.value = AppTheme2.darkArabic;
       }
       Get.changeThemeMode(ThemeMode.dark);
       myServices.sharedPreferences
           ?.setString(AppConstants.themeMode, "ThemeMode.dark");
     }
+
     Get.changeTheme(currentThemeData.value);
 
-    myServices.sharedPreferences
-        ?.setString(AppConstants.themeMode, "${currentTheme.value}");
     update();
-    // Get.changeThemeMode(currentTheme.value);
+  }
+
+  void changeLanguage(String value) {
+    if (value == "العربية") {
+      myServices.sharedPreferences!.setString('lange', "ar");
+    } else if (value == "English") {
+      myServices.sharedPreferences!.setString("lange", "en");
+    }
+    String? lang = myServices.sharedPreferences!.getString('lange');
+    if (lang == "en") {
+      language("en");
+      if (currentTheme.value == "ThemeMode.dark") {
+        currentThemeData.value = AppTheme2.darkEnglish;
+      } else {
+        currentThemeData.value = AppTheme2.lightEnglish;
+      }
+
+      // currentThemeData.value = currentThemeData.value == AppTheme2.darkArabic
+      //     ? AppTheme2.lightArabic
+      //     : AppTheme2.darkArabic;
+    } else {
+      language("ar");
+      if (currentTheme.value == "ThemeMode.dark") {
+        currentThemeData.value = AppTheme2.darkArabic;
+      } else {
+        currentThemeData.value = AppTheme2.lightArabic;
+      }
+
+      // currentThemeData.value = currentThemeData.value == AppTheme2.darkEnglish
+      //     ? AppTheme2.lightEnglish
+      //     : AppTheme2.darkEnglish;
+    }
+    Get.changeTheme(currentThemeData.value);
+    // currentTheme.value = currentTheme.value == ThemeMode.light
+    //     ? ThemeMode.dark
+    //     : ThemeMode.light;
   }
 
   void language(String language) {

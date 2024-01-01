@@ -1,9 +1,9 @@
 import 'package:ecommerece/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
-class CustomInpoutSearch extends StatelessWidget {
+class CustomInputSearch extends StatelessWidget {
   final String title;
-  const CustomInpoutSearch({super.key, required this.title});
+  const CustomInputSearch({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +24,7 @@ class CustomInpoutSearch extends StatelessWidget {
               .headlineMedium!
               .copyWith(fontWeight: FontWeight.w400),
           decoration: InputDecoration(
+            border: InputBorder.none,
             hintText: title,
             hintStyle: Theme.of(context).textTheme.headlineMedium!,
             focusedBorder: InputBorder.none,

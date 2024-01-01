@@ -56,12 +56,7 @@ class SettingSCreen extends StatelessWidget {
                 leading: const Icon(Icons.notifications_active_outlined),
               ),
               ListTile(
-                onTap: () {
-                  _controllerLanguage.switchTheme();
-                  _controllerLanguage.changeLanguage();
-
-                  Get.changeThemeMode(_controllerLanguage.currentTheme.value);
-                },
+                onTap: () {},
                 title: Obx(
                   () => DropdownButton(
                       hint: Text(_controllerLanguage.localData.value == "ar"
@@ -74,10 +69,8 @@ class SettingSCreen extends StatelessWidget {
                               ))
                           .toList(),
                       onChanged: (value) {
-                        _controllerLanguage.localData.value =
-                            value == "العربية" ? "ar" : "en";
                         // _controllerLanguage.switchTheme();
-                        _controllerLanguage.changeLanguage();
+                        _controllerLanguage.changeLanguage(value.toString());
 
                         // Get.changeThemeMode(
                         //     _controllerLanguage.currentTheme.value);
@@ -88,7 +81,7 @@ class SettingSCreen extends StatelessWidget {
               Obx(
                 () => ListTile(
                   onTap: () {
-                    _controllerLanguage.switchTheme();
+                    // _controllerLanguage.switchTheme();
                     _controllerLanguage.changeThemeData();
                   },
                   title: Text(

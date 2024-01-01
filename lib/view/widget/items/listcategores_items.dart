@@ -97,7 +97,8 @@ class CatagoresItem extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.only(left: 12, bottom: 10),
+                margin: const EdgeInsets.only(top: 10, left: 10),
+                // padding: const EdgeInsets.only(left: 12, bottom: 10,),
                 child: controller.selectedCat == selected
                     ? Text(data.categoriesName!,
                         textAlign: TextAlign.center,

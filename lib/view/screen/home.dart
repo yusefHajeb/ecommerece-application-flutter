@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerece/controller/home_controller.dart';
-import 'package:ecommerece/core/constant/color.dart';
 import 'package:ecommerece/core/constant/imageassets.dart';
 import 'package:ecommerece/view/widget/home/custombuttonnotification.dart';
 import 'package:ecommerece/view/widget/home/customcard_items.dart';
@@ -23,8 +22,6 @@ class Home extends StatelessWidget {
       ImageAssets.product6,
       ImageAssets.category3,
       ImageAssets.product2,
-      // 'assest/images/s2.jpg',
-      // 'assest/images/s3.jpg'
     ];
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -38,21 +35,14 @@ class Home extends StatelessWidget {
           Container(
             child: Row(
               children: [
-                const CustomInpoutSearch(title: "Find Product"),
+                const CustomInputSearch(title: "Find Product"),
                 const SizedBox(
                   width: 5,
                 ),
                 CustomButtonNotification(onPressedIcon: () {}),
-                Container(
-                  width: 30,
-                  height: 30,
-                  color: AppColor.backgroundScreen,
-                )
               ],
             ),
           ),
-          // const CustomCurdImage(),
-          //=================
 
           Container(
             padding: EdgeInsets.symmetric(vertical: 10),

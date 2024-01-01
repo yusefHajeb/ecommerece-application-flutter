@@ -26,7 +26,7 @@ class ItemsScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        const CustomInpoutSearch(title: "Find Product"),
+                        const CustomInputSearch(title: "Find Product"),
                         const SizedBox(
                           width: 5,
                         ),

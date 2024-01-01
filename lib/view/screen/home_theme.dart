@@ -1,9 +1,7 @@
 import 'package:ecommerece/controller/theme_controller.dart';
-import 'package:ecommerece/core/localization/changelocal.dart';
 import 'package:ecommerece/core/shared/custom_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class HomeTheme extends StatefulWidget {
   const HomeTheme({super.key});
@@ -14,7 +12,6 @@ class HomeTheme extends StatefulWidget {
 
 class _HomeThemeState extends State<HomeTheme> {
   final HomeController _controller = Get.put(HomeController());
-  final LocaleController _themeMode = Get.put(LocaleController());
 
   @override
   void initState() {
@@ -37,7 +34,7 @@ class _HomeThemeState extends State<HomeTheme> {
               value: _controller.currentTheme.value == ThemeMode.dark,
               onChanged: (value) {
                 _controller.switchTheme();
-                _controller.changeLanguage();
+                // _controller.changeLanguage("");
               },
               activeColor: CustomTheme.white,
             ),
