@@ -5,9 +5,6 @@ import 'package:ecommerece/core/shared/text_style.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme2 {
-  //
-  // Light theme
-  //
   static final _lightTextTheme = AppTextThemeExtension(
     bodyMedium:
         AppTextStyle.bodyMedium.copyWith(color: _lightAppColors.onBackground),
@@ -64,10 +61,28 @@ class AppTheme2 {
       scaffoldBackgroundColor: Colors.black38,
       useMaterial3: true,
       fontFamily: 'Cairo',
+      appBarTheme: const AppBarTheme(
+        centerTitle: true,
+      ),
+      switchTheme: SwitchThemeData(
+        trackColor: MaterialStateProperty.all(Colors.white),
+      ),
+      iconTheme: const IconThemeData(color: Colors.black12),
+      textTheme: const TextTheme(
+        bodyLarge: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: AppColor.black,
+          fontFamily: 'Cairo',
+        ),
+        displayLarge: AppTextStyle.bodyLarge,
+        // textAlign: TextAlign.center,
+      ),
       listTileTheme: ListTileThemeData(
         iconColor: AppColor.backgroundScreen,
       ),
     );
+
     return themeEnglish.copyWith(
       iconTheme: IconThemeData(color: Colors.red),
       primaryColor: AppColor.secandryColor,

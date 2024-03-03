@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ecommerece/controller/setting_contoller.dart';
 import 'package:ecommerece/controller/theme_controller.dart';
 import 'package:ecommerece/core/constant/color.dart';
@@ -58,22 +60,22 @@ class SettingSCreen extends StatelessWidget {
               ListTile(
                 onTap: () {},
                 title: Obx(
-                  () => DropdownButton(
-                      hint: Text(_controllerLanguage.localData.value == "ar"
-                          ? "العربية"
-                          : "English"),
+                  () => DropdownButton<String>(
+                      hint: Text(
+                          _controllerLanguage.language.obs.value.toString() ==
+                                  "ar"
+                              ? "العربية"
+                              : "English"),
                       items: ['العربية', 'English']
-                          .map((e) => DropdownMenuItem(
+                          .map((e) => DropdownMenuItem<String>(
                                 value: e,
                                 child: Text(e),
                               ))
                           .toList(),
                       onChanged: (value) {
-                        // _controllerLanguage.switchTheme();
-                        _controllerLanguage.changeLanguage(value.toString());
-
-                        // Get.changeThemeMode(
-                        //     _controllerLanguage.currentTheme.value);
+                        log(_controllerLanguage.currentTheme.value.toString());
+                        _controllerLanguage.changeLanguage(value!);
+                        log(_controllerLanguage.currentTheme.value.toString());
                       }),
                 ),
                 leading: const Icon(Icons.language_outlined),
@@ -81,11 +83,10 @@ class SettingSCreen extends StatelessWidget {
               Obx(
                 () => ListTile(
                   onTap: () {
-                    // _controllerLanguage.switchTheme();
-                    _controllerLanguage.changeThemeData();
+                    _controllerLanguage.switchTheme();
+                    // _controllerLanguage.changeThemeData();
                   },
-                  title: Text(
-                      "${_controllerLanguage.currentTheme.value == ThemeMode.dark ? "الوضع الليلي" : "الوضع النهاري"}"),
+                  title: Text(''),
                   leading: Icon(
                       _controllerLanguage.currentTheme.value == ThemeMode.dark
                           ? Icons.mode_night_outlined

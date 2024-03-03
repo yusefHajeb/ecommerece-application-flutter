@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 class HomeController extends GetxController {
   // initializing with the current theme of the device
   MyServices myServices = Get.find();
+  Locale? language;
   Rx<ThemeMode> currentTheme = ThemeMode.system.obs;
   Rx<ThemeData> currentThemeData = ThemeData.light().obs;
   Rx<String> localData = "ar".obs;
@@ -31,85 +32,74 @@ class HomeController extends GetxController {
         .setString(AppConstants.themeMode, "${currentTheme.value}");
   }
 
-  void changeThemeData() {
-    String? lang = myServices.sharedPreferences!.getString('lange');
-    String? themeMode =
-        myServices.sharedPreferences?.getString(AppConstants.themeMode);
-    print("ThemeMode Cashed");
-    print(themeMode);
-    if (themeMode == "ThemeMode.dark") {
-      if (lang == "en") {
-        // language('ar');
-        currentThemeData.value = AppTheme2.lightEnglish;
-      } else {
-        // language("en");
-        currentThemeData.value = AppTheme2.lightArabic;
-      }
-      myServices.sharedPreferences
-          ?.setString(AppConstants.themeMode, "ThemeMode.light");
+  // void changeThemeData() {
+  //   String? lang = myServices.sharedPreferences!.getString('lange');
+  //   String? themeMode =
+  //       myServices.sharedPreferences?.getString(AppConstants.themeMode);
+  //   print("ThemeMode Cashed");
+  //   print(themeMode);
+  //   if (themeMode == "ThemeMode.dark") {
+  //     if (lang == "en") {
+  //       // language('ar');
+  //       currentThemeData.value = AppTheme2.lightEnglish;
+  //     } else {
+  //       // language("en");
+  //       currentThemeData.value = AppTheme2.lightArabic;
+  //     }
+  //     myServices.sharedPreferences
+  //         ?.setString(AppConstants.themeMode, "ThemeMode.light");
 
-      Get.changeThemeMode(ThemeMode.light);
-    } else {
-      if (lang == "en") {
-        currentThemeData.value = AppTheme2.darkEnglish;
-      } else {
-        currentThemeData.value = AppTheme2.darkArabic;
-      }
-      Get.changeThemeMode(ThemeMode.dark);
-      myServices.sharedPreferences
-          ?.setString(AppConstants.themeMode, "ThemeMode.dark");
-    }
+  //     Get.changeThemeMode(ThemeMode.light);
+  //   } else {
+  //     if (lang == "en") {
+  //       currentThemeData.value = AppTheme2.darkEnglish;
+  //     } else {
+  //       currentThemeData.value = AppTheme2.darkArabic;
+  //     }
+  //     Get.changeThemeMode(ThemeMode.dark);
+  //     myServices.sharedPreferences
+  //         ?.setString(AppConstants.themeMode, "ThemeMode.dark");
+  //   }
 
-    Get.changeTheme(currentThemeData.value);
+  //   Get.changeTheme(currentThemeData.value);
 
-    update();
-  }
+  //   update();
+  // }
+
+  RxString controllerLanguage = "en".obs;
 
   void changeLanguage(String value) {
+    String? themeMode = myServices.sharedPreferences!.getString(
+      AppConstants.themeMode,
+    );
     if (value == "العربية") {
       myServices.sharedPreferences!.setString('lange', "ar");
-    } else if (value == "English") {
-      myServices.sharedPreferences!.setString("lange", "en");
-    }
-    String? lang = myServices.sharedPreferences!.getString('lange');
-    if (lang == "en") {
-      language("en");
-      if (currentTheme.value == "ThemeMode.dark") {
-        currentThemeData.value = AppTheme2.darkEnglish;
-      } else {
-        currentThemeData.value = AppTheme2.lightEnglish;
-      }
-
-      // currentThemeData.value = currentThemeData.value == AppTheme2.darkArabic
-      //     ? AppTheme2.lightArabic
-      //     : AppTheme2.darkArabic;
-    } else {
-      language("ar");
-      if (currentTheme.value == "ThemeMode.dark") {
-        currentThemeData.value = AppTheme2.darkArabic;
-      } else {
+      controllerLanguage.value = "ar";
+      if (themeMode == "ThemeMode.light") {
+        // currentTheme.value = ThemeMode.light;
         currentThemeData.value = AppTheme2.lightArabic;
+      } else if (themeMode == "ThemeMode.dark") {
+        // currentTheme.value = ThemeMode.dark;
+        currentThemeData.value = AppTheme2.darkArabic;
       }
-
-      // currentThemeData.value = currentThemeData.value == AppTheme2.darkEnglish
-      //     ? AppTheme2.lightEnglish
-      //     : AppTheme2.darkEnglish;
+    } else if (value == "English") {
+      controllerLanguage.value = "en";
+      myServices.sharedPreferences!.setString("lange", "en");
+      if (themeMode == "ThemeMode.light") {
+        currentTheme.value = ThemeMode.light;
+        currentThemeData.value = AppTheme2.lightEnglish;
+      } else {
+        currentTheme.value = ThemeMode.dark;
+        currentThemeData.value = AppTheme2.darkEnglish;
+      }
     }
-    Get.changeTheme(currentThemeData.value);
-    // currentTheme.value = currentTheme.value == ThemeMode.light
-    //     ? ThemeMode.dark
-    //     : ThemeMode.light;
-  }
 
-  void language(String language) {
-    print("language");
-    print(language);
-    localData.value = language;
-    myServices.sharedPreferences!.setString("lange", language);
+    localData.value = controllerLanguage.value;
+    language = Locale(controllerLanguage.value);
+    Get.updateLocale(language!);
+    Get.changeTheme(currentThemeData.value);
+    // Get.changeThemeMode(currentTheme.value);
     update();
-    print("language : ");
-    print(localData.value);
-    Get.updateLocale(Locale(localData.value));
   }
 
   @override
@@ -117,9 +107,12 @@ class HomeController extends GetxController {
     String? themeMode = myServices.sharedPreferences!.getString(
       AppConstants.themeMode,
     );
+
     String? lang = myServices.sharedPreferences!.getString('lange');
 
     if (lang == "ar") {
+      language = const Locale("ar");
+      controllerLanguage.value = 'ar';
       if (themeMode == "ThemeMode.light") {
         currentTheme = ThemeMode.light.obs;
         currentThemeData = AppTheme2.lightArabic.obs;
@@ -127,7 +120,9 @@ class HomeController extends GetxController {
         currentTheme = ThemeMode.dark.obs;
         currentThemeData = AppTheme2.darkArabic.obs;
       }
-    } else {
+    } else if (lang == 'en') {
+      language = const Locale("en");
+      controllerLanguage.value = 'ar';
       if (themeMode == "ThemeMode.light") {
         currentTheme = ThemeMode.light.obs;
         currentThemeData = AppTheme2.lightEnglish.obs;
@@ -136,6 +131,9 @@ class HomeController extends GetxController {
         currentThemeData = AppTheme2.darkEnglish.obs;
       }
     }
+
+    Get.changeTheme(currentThemeData.value);
+    Get.changeThemeMode(currentTheme.value);
 
     super.onInit();
   }

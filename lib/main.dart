@@ -21,10 +21,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     LocaleController contoller = Get.put(LocaleController());
     HomeController themeController = Get.put(HomeController());
+    MyServices myServices = Get.find();
     return GetMaterialApp(
       translations: MyTranslation(),
       debugShowCheckedModeBanner: false,
-      locale: Locale(themeController.localData.value),
+      locale: themeController.language,
       themeMode: themeController.currentTheme.value,
       title: 'Flutter Demo',
       theme: contoller.appTheme,
@@ -33,7 +34,6 @@ class MyApp extends StatelessWidget {
       initialBinding: MyBinding(),
       // home: Launguage(),
       getPages: routes,
-      // routes: routes,
     );
   }
 }
